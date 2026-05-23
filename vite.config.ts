@@ -4,26 +4,21 @@ import tsConfigPaths from "vite-tsconfig-paths";
 import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 
-export default defineConfig(async (env) => {
-  const { command, mode } = env;
-  const internalPlugins = [];
-
-  internalPlugins.push(TanStackRouterVite({
-    routesDirectory: "./src/routes",
-    generatedRouteTree: "./src/routeTree.gen.ts",
-  }));
-  internalPlugins.push(tailwindcss());
-  internalPlugins.push(tsConfigPaths({ projects: ["./tsconfig.json"] }));
-  internalPlugins.push(viteReact());
-
-  let envDefine = {};
-  const loadedEnv = loadEnv(mode, process.cwd(), "VITE_");
-  for (const [key, value] of Object.entries(loadedEnv)) {
-    envDefine[`import.meta.env.${key}`] = JSON.stringify(value);
-  }
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), "");
 
   return {
-    define: envDefine,
+    plugins: [
+      TanStackRouterVite({
+        routesDirectory: "./src/routes",
+        generatedRouteTree: "./src/routeTree.gen.ts",
+      }),
+      tailwindcss(),
+      tsConfigPaths({
+        projects: ["./tsconfig.json"],
+      }),
+      viteReact(),
+    ],
     resolve: {
       alias: {
         "@": `${process.cwd()}/src`
@@ -38,15 +33,20 @@ export default defineConfig(async (env) => {
       ]
     },
     server: {
+      port: 3000,
       host: "::",
-      port: 8080,
-      watch: {
-        awaitWriteFinish: {
-          stabilityThreshold: 1000,
-          pollInterval: 100
-        }
-      }
     },
-    plugins: internalPlugins
+    build: {
+      outDir: "dist",
+      emptyOutDir: true,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vendor: ["react", "react-dom", "@tanstack/react-router"],
+            ui: ["lucide-react"],
+          },
+        },
+      },
+    },
   };
 });
