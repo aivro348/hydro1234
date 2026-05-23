@@ -9,6 +9,7 @@ import accessories from "@/assets/prod-accessories.jpg";
 import handpump from "@/assets/slide-handpump.png";
 import heavyCylinders from "@/assets/prod-heavy-cylinders.png";
 import brassActuators from "@/assets/prod-brass-actuators.png";
+import tollgatePowerpack from "@/assets/prod-tollgate-powerpack.png";
 
 export type CatalogItem = {
   slug: string;
@@ -16,7 +17,7 @@ export type CatalogItem = {
   short: string;
   description: string;
   image: string;
-};
+ };
 
 export const CATALOG: CatalogItem[] = [
   { slug: "hydraulic-pumps", title: "Hydraulic Pumps", short: "Gear, piston & vane pumps", description: "Premium hydraulic pumps for industrial, mobile & agricultural applications. Repair & replacement available.", image: pump },
@@ -28,6 +29,7 @@ export const CATALOG: CatalogItem[] = [
   { slug: "power-pack", title: "Power Pack Sales & Service", short: "Custom hydraulic power packs", description: "Design, supply and servicing of custom hydraulic power packs for any tonnage and duty cycle.", image: powerpack },
   { slug: "cylinder", title: "Cylinder Sales & Service", short: "Single & double acting cylinders", description: "Manufacturing, repair and reconditioning of hydraulic cylinders of every bore and stroke.", image: cylinder },
   { slug: "hand-pump", title: "Hand Pump", short: "Manual hydraulic pumps", description: "High-pressure manual hydraulic pumps for precision lifting, testing, and pressing.", image: handpump },
-  { slug: "heavy-duty-cylinders", title: "Heavy-Duty Clevis Cylinders", short: "High-tonnage clevis cylinders", description: "Machine-green, heavy-duty industrial hydraulic cylinders with robust clevis mounts for maximum load stability.", image: heavyCylinders },
+  { slug: "heavy-duty-clevis-cylinders", title: "Heavy-Duty Clevis Cylinders", short: "High-tonnage clevis cylinders", description: "Machine-green, heavy-duty industrial hydraulic cylinders with robust clevis mounts for maximum load stability.", image: heavyCylinders },
   { slug: "brass-actuators", title: "Precision Brass Actuators", short: "Polished brass hydraulic cylinders", description: "High-quality, polished brass hydraulic cylinders and actuators featuring precision steel piston rods.", image: brassActuators },
+  { slug: "tollgate-powerpack", title: "Single Phase Power Pack for Toll Gate", short: "Compact 1-Phase hydraulic units", description: "High-reliability single-phase hydraulic power packs designed for seamless, continuous toll gate barrier operation.", image: tollgatePowerpack },
 ];
