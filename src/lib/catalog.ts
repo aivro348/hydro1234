@@ -10,6 +10,7 @@ import handpump from "@/assets/slide-handpump.png";
 import heavyCylinders from "@/assets/prod-heavy-cylinders.png";
 import brassActuators from "@/assets/prod-brass-actuators.png";
 import tollgatePowerpack from "@/assets/prod-tollgate-powerpack.png";
+import twoWheelerBikeLifting from "@/assets/two-wheeler-bike-lifting.png";
 
 export type CatalogItem = {
   slug: string;
@@ -32,4 +33,6 @@ export const CATALOG: CatalogItem[] = [
   { slug: "heavy-duty-clevis-cylinders", title: "Heavy-Duty Clevis Cylinders", short: "High-tonnage clevis cylinders", description: "Machine-green, heavy-duty industrial hydraulic cylinders with robust clevis mounts for maximum load stability.", image: heavyCylinders },
   { slug: "brass-actuators", title: "Precision Brass Actuators", short: "Polished brass hydraulic cylinders", description: "High-quality, polished brass hydraulic cylinders and actuators featuring precision steel piston rods.", image: brassActuators },
   { slug: "tollgate-powerpack", title: "Single Phase Power Pack for Toll Gate", short: "Compact 1-Phase hydraulic units", description: "High-reliability single-phase hydraulic power packs designed for seamless, continuous toll gate barrier operation.", image: tollgatePowerpack },
+  { slug: "two-wheeler-bike-lifting", title: "Two Wheeler Garage Bike Lifting", short: "Hydraulic bike lifting systems", description: "Durable hydraulic lifting systems specifically designed for two-wheeler garages and service stations.", image: twoWheelerBikeLifting },
 ];
+
