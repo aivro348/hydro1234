@@ -1,15 +1,14 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, CheckCircle2, X } from "lucide-react";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
-import { PageHero } from "@/components/site/PageHero";
-import { CATALOG } from "@/lib/catalog";
-import { SITE, waLink } from "@/lib/site";
+import { SERVICES, ServiceCategory } from "@/lib/services";
+import { waLink } from "@/lib/site";
 import { ParticleField } from "@/components/site/ParticleField";
 import { usePageReveal } from "@/hooks/useScrollReveal";
+import { SEO } from "@/components/site/SEO";
 
-const TITLE = "Hydraulic Services | RVS Hydraulics Shoolagiri";
-const DESC =
-  "Hydraulic pump repair, cylinder service, power packs, hose assemblies, seal kits, valves & fittings — sales and service in Shoolagiri, Hosur, Krishnagiri.";
+const TITLE = "Professional Hydraulic Repair & Services | RVS Hydraulics Shoolagiri";
+const DESC = "Expert hydraulic cylinder repair, pump maintenance, rod honing, hydraulic piston repair, and high-pressure hose assembly in Shoolagiri & Hosur.";
 
 export const Route = createFileRoute("/services")({
   component: Services,
@@ -17,136 +16,228 @@ export const Route = createFileRoute("/services")({
 
 function Services() {
   usePageReveal();
+  const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState<ServiceCategory | "all">("all");
 
+  // Retro-compatibility redirect for old modal share links (e.g., /services?id=hydraulic-ram-repair-services)
   useEffect(() => {
-    document.title = TITLE;
-  }, []);
-  const [zoomedImage, setZoomedImage] = useState<string | null>(null);
+    const params = new URLSearchParams(window.location.search);
+    const serviceId = params.get("id");
+    if (serviceId) {
+      const match = SERVICES.find((s) => s.id === serviceId);
+      if (match) {
+        navigate({ to: "/services/$serviceId", params: { serviceId } });
+      }
+    }
+  }, [navigate]);
 
   return (
     <>
-      <section className="pt-32 pb-24 md:pt-36 md:pb-28">
-        <div className="mx-auto max-w-7xl px-4 md:px-6">
+      <SEO
+        title={TITLE}
+        description={DESC}
+        keywords="hydraulic service Shoolagiri, pump repair Hosur, cylinder maintenance Krishnagiri, fluid power service Tamil Nadu, RVS Hydraulics"
+      />
+
+      <section className="pt-32 pb-24 md:pt-36 md:pb-28 bg-gradient-hero relative overflow-hidden">
+        <div className="absolute inset-0 grid-pattern opacity-10" />
+        <div className="mx-auto max-w-7xl px-4 md:px-6 relative z-10">
+          
           {/* Page Header */}
-          <div className="text-center mb-14">
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-              Our Services
+          <div className="text-center mb-16">
+            <div className="text-xs font-bold uppercase tracking-[0.25em] text-primary bg-primary/5 px-4 py-1.5 rounded-full inline-block">
+              Premium Solutions
             </div>
-            <h1 className="mt-3 font-display text-3xl font-bold md:text-5xl lg:text-6xl">
-              Sales & Service <span className="text-gradient-brand">Solutions</span>
+            <h1 className="mt-4 font-display text-4xl font-extrabold tracking-tight md:text-6xl text-foreground">
+              Our Professional <span className="text-gradient-brand">Hydraulic Services</span>
             </h1>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground max-w-2xl mx-auto md:text-base">
-              Comprehensive hydraulic solutions — from pump repair and cylinder reconditioning to custom power pack engineering.
+            <p className="mt-4 text-sm md:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              State-of-the-art repair, reconditioning, and diagnostics of industrial fluid power systems. Handled by highly experienced technicians.
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
-            {CATALOG.map((c, idx) => (
-              <article
-                key={c.slug}
-                className="reveal-card group grid gap-0 overflow-hidden rounded-2xl border border-border bg-card shadow-card transition-all hover:border-primary/30 hover:shadow-glow-gold sm:grid-cols-5"
-                data-delay={idx * 80}
-              >
-                <div className="aspect-[4/3] overflow-hidden sm:col-span-2 sm:aspect-auto">
-                  <img
-                    src={c.image}
-                    alt={c.title}
-                    width={800}
-                    height={600}
-                    loading="lazy"
-                    onClick={() => setZoomedImage(c.image)}
-                    className="h-full w-full object-cover cursor-pointer transition duration-700 group-hover:scale-110"
-                  />
-                </div>
-                <div className="p-7 sm:col-span-3">
-                  <div className="text-xs font-semibold uppercase tracking-wider text-primary">
-                    0{idx + 1}
-                  </div>
-                  <h3 className="mt-2 font-display text-xl font-semibold">
-                    {c.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    {c.description}
-                  </p>
-                  <ul className="mt-4 space-y-2 text-sm">
-                    <li className="flex gap-2">
-                      <CheckCircle2 className="mt-0.5 h-4 w-4 text-accent shrink-0" />
-                      Genuine OEM-grade parts
-                    </li>
-                    <li className="flex gap-2">
-                      <CheckCircle2 className="mt-0.5 h-4 w-4 text-accent shrink-0" />
-                      Trained service technicians
-                    </li>
-                  </ul>
-                  <div className="mt-5 flex gap-3">
-                    <a
-                      href={waLink(`Hi, I'd like a quote for ${c.title}.`)}
-                      target="_blank"
-                      rel="noopener"
-                      className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-brand px-4 py-2.5 text-xs font-bold text-primary-foreground shadow-industrial transition-all hover:shadow-glow-gold"
-                    >
-                      Get Quote <ArrowRight className="h-3 w-3" />
-                    </a>
-                    <a
-                      href={`tel:${SITE.phoneIntl}`}
-                      className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-card/50 px-4 py-2.5 text-xs font-semibold transition hover:bg-card"
-                    >
-                      Call Now
-                    </a>
-                  </div>
-                </div>
-              </article>
-            ))}
+          {/* Tab Filters */}
+          <div className="mb-10 border-b border-border/80">
+            <div className="flex flex-wrap gap-2 pb-6">
+              {[
+                { id: "all", label: "All" },
+                { id: "cylinder", label: "Hydraulic Cylinder Repair & Maintenance Services" },
+                { id: "pump", label: "Hydraulic Pump Repair & Services" }
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id as any)}
+                  className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300 ${
+                    activeTab === tab.id
+                      ? "bg-primary text-primary-foreground shadow-md scale-105"
+                      : "bg-card border border-border text-foreground hover:border-primary/50 hover:bg-muted"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
           </div>
 
-          {/* CTA banner */}
-          <div className="reveal-section mt-16 relative overflow-hidden rounded-2xl border border-border shadow-industrial">
-            <div className="absolute inset-0 bg-gradient-hero" />
-            <ParticleField className="opacity-30" />
-            <div className="absolute inset-0 grid-pattern opacity-15" />
-            <div className="absolute left-1/2 top-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/8 blur-[80px]" />
-            <div className="relative grid items-center gap-8 p-10 md:grid-cols-[1fr_auto] md:p-14">
+          <div className="flex flex-col gap-16">
+            {/* Cylinder Section */}
+            {(activeTab === "all" || activeTab === "cylinder") && (
               <div>
-                <h3 className="font-display text-2xl font-bold md:text-4xl">
-                  Custom hydraulic{" "}
-                  <span className="text-gradient-brand">requirement?</span>
+                <div className="mb-8 flex items-center justify-between border-b border-border/80 pb-4">
+                  <h2 className="font-display text-2xl font-bold text-foreground">
+                    Hydraulic Cylinder Repair & Maintenance Services ({SERVICES.filter(s => s.category === "cylinder").length})
+                  </h2>
+                </div>
+                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                  {SERVICES.filter(s => s.category === "cylinder").map((s, idx) => (
+                    <Link
+                      key={s.id}
+                      to="/services/$serviceId"
+                      params={{ serviceId: s.id }}
+                      className="reveal-card group flex flex-col justify-between overflow-hidden rounded-2xl border border-border bg-card shadow-card hover:shadow-glow-gold hover:border-primary/30 transition-all duration-300 cursor-pointer text-left"
+                      data-delay={idx * 60}
+                    >
+                      <div>
+                        {/* Card Image */}
+                        <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+                          <img
+                            src={s.image}
+                            alt={s.title}
+                            width={600}
+                            height={450}
+                            loading="lazy"
+                            className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                          />
+                          <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md rounded-lg px-2.5 py-1 text-[10px] font-bold text-white uppercase tracking-wider">
+                            Premium Service
+                          </div>
+                        </div>
+
+                        {/* Card Content */}
+                        <div className="p-5 flex flex-col gap-3">
+                          <h3 className="font-display text-xl font-bold text-foreground group-hover:text-primary transition-colors leading-tight">
+                            {s.title}
+                          </h3>
+                          
+                          <div className="flex flex-col gap-1 text-xs border-t border-border/60 pt-3">
+                            <div className="text-muted-foreground font-medium">Request for Price</div>
+                            <div className="text-foreground">
+                              <span className="font-semibold text-muted-foreground">Type : </span>
+                              {s.type}
+                            </div>
+                            <div className="text-foreground">
+                              <span className="font-semibold text-muted-foreground">Duration : </span>
+                              {s.duration}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Bottom Button */}
+                      <div className="p-5 pt-0">
+                        <div className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#0070e0] hover:bg-[#005fb8] text-white px-4 py-3 text-sm font-bold shadow-md transition duration-300">
+                          Get Best Price
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Pump Section */}
+            {(activeTab === "all" || activeTab === "pump") && (
+              <div>
+                <div className="mb-8 flex items-center justify-between border-b border-border/80 pb-4">
+                  <h2 className="font-display text-2xl font-bold text-foreground">
+                    Hydraulic Pump Repair & Services ({SERVICES.filter(s => s.category === "pump").length})
+                  </h2>
+                </div>
+                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                  {SERVICES.filter(s => s.category === "pump").map((s, idx) => (
+                    <Link
+                      key={s.id}
+                      to="/services/$serviceId"
+                      params={{ serviceId: s.id }}
+                      className="reveal-card group flex flex-col justify-between overflow-hidden rounded-2xl border border-border bg-card shadow-card hover:shadow-glow-gold hover:border-primary/30 transition-all duration-300 cursor-pointer text-left"
+                      data-delay={idx * 60}
+                    >
+                      <div>
+                        {/* Card Image */}
+                        <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+                          <img
+                            src={s.image}
+                            alt={s.title}
+                            width={600}
+                            height={450}
+                            loading="lazy"
+                            className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                          />
+                          <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md rounded-lg px-2.5 py-1 text-[10px] font-bold text-white uppercase tracking-wider">
+                            Premium Service
+                          </div>
+                        </div>
+
+                        {/* Card Content */}
+                        <div className="p-5 flex flex-col gap-3">
+                          <h3 className="font-display text-xl font-bold text-foreground group-hover:text-primary transition-colors leading-tight">
+                            {s.title}
+                          </h3>
+                          
+                          <div className="flex flex-col gap-1 text-xs border-t border-border/60 pt-3">
+                            <div className="text-muted-foreground font-medium">Request for Price</div>
+                            <div className="text-foreground">
+                              <span className="font-semibold text-muted-foreground">Type : </span>
+                              {s.type}
+                            </div>
+                            <div className="text-foreground">
+                              <span className="font-semibold text-muted-foreground">Duration : </span>
+                              {s.duration}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Bottom Button */}
+                      <div className="p-5 pt-0">
+                        <div className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#0070e0] hover:bg-[#005fb8] text-white px-4 py-3 text-sm font-bold shadow-md transition duration-300">
+                          Get Best Price
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* CTA Banner */}
+          <div className="reveal-section mt-24 relative overflow-hidden rounded-3xl border border-border shadow-industrial">
+            <div className="absolute inset-0 bg-gradient-hero" />
+            <ParticleField className="opacity-20" />
+            <div className="absolute inset-0 grid-pattern opacity-10" />
+            <div className="absolute -left-16 -top-16 h-64 w-64 rounded-full bg-primary/5 blur-[100px]" />
+            <div className="relative grid items-center gap-8 p-10 md:grid-cols-[1fr_auto] md:p-16">
+              <div>
+                <h3 className="font-display text-3xl font-extrabold md:text-4xl text-foreground">
+                  Need a Custom Hydraulic <span className="text-gradient-brand">Service or Solution?</span>
                 </h3>
-                <p className="mt-3 text-muted-foreground">
-                  Send us your specifications — we'll engineer the right
-                  solution for your application.
+                <p className="mt-3 text-muted-foreground text-sm md:text-base max-w-2xl">
+                  Contact our expert engineering team in Shoolagiri, Hosur today. We specialize in custom cylinder fabrication, power pack design, and high-pressure hose assemblies.
                 </p>
               </div>
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 rounded-xl bg-gradient-brand px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-industrial transition-all hover:shadow-glow-gold"
+              <a
+                href={waLink("Hi RVS Hydraulics, I need assistance with a custom hydraulic servicing requirement.")}
+                target="_blank"
+                rel="noopener"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-brand px-6 py-4 text-sm font-bold text-primary-foreground shadow-industrial hover:shadow-glow-gold transition-all duration-300 animate-pulse-subtle"
               >
-                Request a Quote <ArrowRight className="h-4 w-4" />
-              </Link>
+                Inquire on WhatsApp <ArrowRight className="h-4 w-4" />
+              </a>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Lightbox / Zoom Overlay */}
-      {zoomedImage && (
-        <div 
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm transition-opacity"
-          onClick={() => setZoomedImage(null)}
-        >
-          <button 
-            className="absolute top-6 right-6 rounded-full bg-white/10 p-2 text-white/70 backdrop-blur-md transition-all hover:bg-white/20 hover:text-white"
-            onClick={() => setZoomedImage(null)}
-          >
-            <X className="h-6 w-6" />
-          </button>
-          <img 
-            src={zoomedImage} 
-            className="max-h-[90vh] max-w-[90vw] rounded-xl object-contain shadow-2xl animate-in fade-in zoom-in duration-300" 
-            alt="Zoomed product" 
-            onClick={(e) => e.stopPropagation()} 
-          />
-        </div>
-      )}
     </>
   );
 }

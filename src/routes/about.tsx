@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { BadgeCheck, Target, Users, Wrench, ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import shop from "@/assets/gallery-shop.jpg";
-import service from "@/assets/gallery-service.jpg";
+import indianMechanicImg from "@/assets/indian_hydraulic_mechanic.png";
 import { usePageReveal } from "@/hooks/useScrollReveal";
 
 const TITLE = "About RVS Hydraulics | Industrial Hydraulic Specialists";
@@ -45,7 +45,7 @@ function About() {
               Built on <span className="text-gradient-brand">Industrial Trust</span>
             </h2>
             <p className="mt-6 text-sm leading-[1.8] text-muted-foreground md:text-base">
-              RVS Hydraulics started with a simple mission — make genuine
+              Established in January 2022, RVS Hydraulics started with a simple mission — make genuine
               hydraulic parts and quality service accessible to every industry
               around Shoolagiri. Today we work with manufacturing plants,
               workshops, contractors and equipment owners across Tamil Nadu and
@@ -147,9 +147,8 @@ function About() {
             </Link>
           </div>
           <div className="reveal-right relative">
-            <div className="absolute -inset-4 rounded-2xl bg-gradient-accent opacity-8 blur-2xl" />
             <img
-              src={service}
+              src={indianMechanicImg}
               alt="Hydraulic service"
               width={1024}
               height={768}
