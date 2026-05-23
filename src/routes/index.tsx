@@ -95,32 +95,15 @@ const DESC =
   "Trusted hydraulic pump repair, cylinder service, hose pipes, fittings, seal kits, power packs & accessories in Shoolagiri, Hosur and Krishnagiri.";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: TITLE },
-      { name: "description", content: DESC },
-      { name: "keywords", content: "hydraulic pump repair, hydraulic cylinder service, hydraulic hose pipes, hydraulic fittings, seal kits, power packs, Shoolagiri, Hosur, Krishnagiri, Bangalore, RVS Hydraulics" },
-      { name: "robots", content: "index, follow" },
-      { property: "og:site_name", content: "RVS Hydraulics" },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://rvshydraulics.com/" },
-      { property: "og:title", content: TITLE },
-      { property: "og:description", content: DESC },
-      { property: "og:image", content: "/hero-premium.png" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: TITLE },
-      { name: "twitter:description", content: DESC },
-      { name: "twitter:image", content: "/hero-premium.png" },
-    ],
-    links: [
-      { rel: "canonical", href: "https://rvshydraulics.com/" }
-    ]
-  }),
   component: HomePage,
 });
 
 function HomePage() {
   usePageReveal();
+
+  useEffect(() => {
+    document.title = TITLE;
+  }, []);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isSliderPlaying, setIsSliderPlaying] = useState(true);

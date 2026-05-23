@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, CheckCircle2, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { PageHero } from "@/components/site/PageHero";
 import { CATALOG } from "@/lib/catalog";
 import { SITE, waLink } from "@/lib/site";
@@ -12,32 +12,15 @@ const DESC =
   "Hydraulic pump repair, cylinder service, power packs, hose assemblies, seal kits, valves & fittings — sales and service in Shoolagiri, Hosur, Krishnagiri.";
 
 export const Route = createFileRoute("/services")({
-  head: () => ({
-    meta: [
-      { title: TITLE },
-      { name: "description", content: DESC },
-      { name: "keywords", content: "hydraulic pump repair Shoolagiri, hydraulic cylinder service, power pack service, hose assembly, seal kit replacement, valve service Hosur Krishnagiri, Bangalore" },
-      { name: "robots", content: "index, follow" },
-      { property: "og:site_name", content: "RVS Hydraulics" },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://rvshydraulics.com/services" },
-      { property: "og:title", content: TITLE },
-      { property: "og:description", content: DESC },
-      { property: "og:image", content: "/hero-premium.png" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: TITLE },
-      { name: "twitter:description", content: DESC },
-      { name: "twitter:image", content: "/hero-premium.png" },
-    ],
-    links: [
-      { rel: "canonical", href: "https://rvshydraulics.com/services" }
-    ]
-  }),
   component: Services,
 });
 
 function Services() {
   usePageReveal();
+
+  useEffect(() => {
+    document.title = TITLE;
+  }, []);
   const [zoomedImage, setZoomedImage] = useState<string | null>(null);
 
   return (

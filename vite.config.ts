@@ -1,33 +1,19 @@
 import { defineConfig, loadEnv } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 import tsConfigPaths from "vite-tsconfig-paths";
-import { tanstackStart } from "@tanstack/react-start/plugin/vite";
+import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 
 export default defineConfig(async (env) => {
   const { command, mode } = env;
   const internalPlugins = [];
 
+  internalPlugins.push(TanStackRouterVite({
+    routesDirectory: "./src/routes",
+    generatedRouteTree: "./src/routeTree.gen.ts",
+  }));
   internalPlugins.push(tailwindcss());
   internalPlugins.push(tsConfigPaths({ projects: ["./tsconfig.json"] }));
-
-
-
-  const tanstackStartDefaults = {
-    importProtection: {
-      behavior: "error",
-      client: {
-        files: ["**/server/**"],
-        specifiers: ["server-only"]
-      }
-    },
-    server: { 
-      entry: "server",
-      preset: "vercel"
-    }
-  };
-  
-  internalPlugins.push(tanstackStart(tanstackStartDefaults));
   internalPlugins.push(viteReact());
 
   let envDefine = {};

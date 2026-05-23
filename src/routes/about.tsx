@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { BadgeCheck, Target, Users, Wrench, ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import shop from "@/assets/gallery-shop.jpg";
@@ -10,32 +11,15 @@ const DESC =
   "Learn about RVS Hydraulics — a trusted hydraulic sales and service company in Shoolagiri serving industries across Hosur, Krishnagiri & Bangalore.";
 
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: TITLE },
-      { name: "description", content: DESC },
-      { name: "keywords", content: "about RVS Hydraulics, hydraulic spare parts supplier, hydraulic service engineers Shoolagiri, pump rebuilders India, factory support Hosur, Krishnagiri, Bangalore" },
-      { name: "robots", content: "index, follow" },
-      { property: "og:site_name", content: "RVS Hydraulics" },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://rvshydraulics.com/about" },
-      { property: "og:title", content: TITLE },
-      { property: "og:description", content: DESC },
-      { property: "og:image", content: "/hero-premium.png" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: TITLE },
-      { name: "twitter:description", content: DESC },
-      { name: "twitter:image", content: "/hero-premium.png" },
-    ],
-    links: [
-      { rel: "canonical", href: "https://rvshydraulics.com/about" }
-    ]
-  }),
   component: About,
 });
 
 function About() {
   usePageReveal();
+
+  useEffect(() => {
+    document.title = TITLE;
+  }, []);
 
   return (
     <>

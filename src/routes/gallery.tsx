@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { CATALOG } from "@/lib/catalog";
 import shop from "@/assets/gallery-shop.jpg";
 import service from "@/assets/gallery-service.jpg";
@@ -10,32 +11,15 @@ const DESC =
   "Photos of our workshop, products and on-site hydraulic service work at RVS Hydraulics, Shoolagiri.";
 
 export const Route = createFileRoute("/gallery")({
-  head: () => ({
-    meta: [
-      { title: TITLE },
-      { name: "description", content: DESC },
-      { name: "keywords", content: "hydraulic workshop gallery, pump repair bench, custom power pack, hydraulic hose assemblies, RVS workshop Shoolagiri, Hosur, Krishnagiri" },
-      { name: "robots", content: "index, follow" },
-      { property: "og:site_name", content: "RVS Hydraulics" },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://rvshydraulics.com/gallery" },
-      { property: "og:title", content: TITLE },
-      { property: "og:description", content: DESC },
-      { property: "og:image", content: "/hero-premium.png" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: TITLE },
-      { name: "twitter:description", content: DESC },
-      { name: "twitter:image", content: "/hero-premium.png" },
-    ],
-    links: [
-      { rel: "canonical", href: "https://rvshydraulics.com/gallery" }
-    ]
-  }),
   component: Gallery,
 });
 
 function Gallery() {
   usePageReveal();
+
+  useEffect(() => {
+    document.title = TITLE;
+  }, []);
 
   const items = [
     { src: hero, alt: "Hydraulic power pack" },

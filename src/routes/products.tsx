@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { CATALOG } from "@/lib/catalog";
 import { waLink } from "@/lib/site";
@@ -9,32 +10,15 @@ const DESC =
   "Browse our full range of hydraulic products — pumps, valves, hose pipes, fittings, seal kits, accessories, power packs and cylinders.";
 
 export const Route = createFileRoute("/products")({
-  head: () => ({
-    meta: [
-      { title: TITLE },
-      { name: "description", content: DESC },
-      { name: "keywords", content: "hydraulic pumps, hydraulic valves, hydraulic cylinders, hose pipes, fittings, seal kits, power packs, hydraulic accessories, Shoolagiri, Hosur, Krishnagiri, Bangalore" },
-      { name: "robots", content: "index, follow" },
-      { property: "og:site_name", content: "RVS Hydraulics" },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://rvshydraulics.com/products" },
-      { property: "og:title", content: TITLE },
-      { property: "og:description", content: DESC },
-      { property: "og:image", content: "/hero-premium.png" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: TITLE },
-      { name: "twitter:description", content: DESC },
-      { name: "twitter:image", content: "/hero-premium.png" },
-    ],
-    links: [
-      { rel: "canonical", href: "https://rvshydraulics.com/products" }
-    ]
-  }),
   component: Products,
 });
 
 function Products() {
   usePageReveal();
+
+  useEffect(() => {
+    document.title = TITLE;
+  }, []);
 
   return (
     <>
