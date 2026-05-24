@@ -4,6 +4,7 @@ import { CATALOG } from "@/lib/catalog";
 import shop from "@/assets/gallery-shop.jpg";
 import service from "@/assets/gallery-service.jpg";
 import hero from "@/assets/hero-hydraulics.jpg";
+import heroPremium from "@/assets/hero-premium.png";
 import { usePageReveal } from "@/hooks/useScrollReveal";
 
 const TITLE = "Gallery | RVS Hydraulics Workshop & Products";
@@ -22,6 +23,7 @@ function Gallery() {
   }, []);
 
   const items = [
+    { src: heroPremium, alt: "Premium Hydraulic Systems" },
     { src: hero, alt: "Hydraulic power pack" },
     { src: service, alt: "Cylinder service" },
     { src: shop, alt: "RVS Hydraulics shop" },
@@ -55,7 +57,9 @@ function Gallery() {
                   <img
                     src={it.src}
                     alt={it.alt}
-                    loading="lazy"
+                    loading={i < 2 ? "eager" : "lazy"}
+                    fetchPriority={i === 0 ? "high" : "auto"}
+                    decoding="async"
                     className="w-full object-cover transition duration-700 group-hover:scale-110"
                   />
                 </div>

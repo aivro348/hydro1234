@@ -13,7 +13,13 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(): RefOb
     if (!el) return;
 
     // Find all revealable elements inside (or the element itself)
-    const revealClasses = ["reveal-section", "reveal-card", "reveal-left", "reveal-right", "reveal-scale"];
+    const revealClasses = [
+      "reveal-section",
+      "reveal-card",
+      "reveal-left",
+      "reveal-right",
+      "reveal-scale",
+    ];
     const targets: HTMLElement[] = [];
 
     revealClasses.forEach((cls) => {
@@ -36,7 +42,7 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(): RefOb
           }
         });
       },
-      { threshold: 0.08, rootMargin: "0px 0px -60px 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -60px 0px" },
     );
 
     targets.forEach((target) => observer.observe(target));
@@ -53,7 +59,13 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(): RefOb
  */
 export function usePageReveal() {
   useEffect(() => {
-    const revealClasses = ["reveal-section", "reveal-card", "reveal-left", "reveal-right", "reveal-scale"];
+    const revealClasses = [
+      "reveal-section",
+      "reveal-card",
+      "reveal-left",
+      "reveal-right",
+      "reveal-scale",
+    ];
     const targets: HTMLElement[] = [];
 
     revealClasses.forEach((cls) => {
@@ -79,7 +91,7 @@ export function usePageReveal() {
           }
         });
       },
-      { threshold: 0.06, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.06, rootMargin: "0px 0px -40px 0px" },
     );
 
     targets.forEach((target) => observer.observe(target));

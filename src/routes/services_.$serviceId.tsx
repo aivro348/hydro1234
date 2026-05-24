@@ -11,7 +11,7 @@ import {
   Camera,
   Check,
   CheckCircle2,
-  AlertCircle
+  AlertCircle,
 } from "lucide-react";
 import { SERVICES } from "@/lib/services";
 import { waLink } from "@/lib/site";
@@ -43,7 +43,8 @@ function ServiceDetail() {
           Service Not Found
         </h1>
         <p className="text-muted-foreground max-w-md mx-auto mb-8">
-          The hydraulic service you are seeking is either obsolete or has been moved. Check our main directory for active industrial services.
+          The hydraulic service you are seeking is either obsolete or has been moved. Check our main
+          directory for active industrial services.
         </p>
         <Link
           to="/services"
@@ -57,12 +58,12 @@ function ServiceDetail() {
 
   // Action WhatsApp Quote Message
   const whatsappQuoteLink = waLink(
-    `Hi RVS Hydraulics, I'd like a price quote and more details for the service: ${service.title}.`
+    `Hi RVS Hydraulics, I'd like a price quote and more details for the service: ${service.title}.`,
   );
 
   // Action WhatsApp Photo Request Message
   const whatsappPhotoLink = waLink(
-    `Hi RVS Hydraulics, I am interested in ${service.title}. Can you please share some actual photos of your servicing work and workshop?`
+    `Hi RVS Hydraulics, I am interested in ${service.title}. Can you please share some actual photos of your servicing work and workshop?`,
   );
 
   // Dynamic share handler
@@ -77,27 +78,28 @@ function ServiceDetail() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": service.title,
-    "image": service.image,
-    "description": service.metaDescription,
-    "provider": {
+    name: service.title,
+    image: service.image,
+    description: service.metaDescription,
+    provider: {
       "@type": "LocalBusiness",
-      "name": "RVS Hydraulics",
-      "telephone": "+919980848855",
-      "address": {
+      name: "RVS Hydraulics",
+      telephone: "+919980848855",
+      address: {
         "@type": "PostalAddress",
-        "streetAddress": "First Floor, Shop No. 2 365 7 2, TK Nagar Service Road, OPP Shoolagiri Bus Stand",
-        "addressLocality": "Shoolagiri",
-        "addressRegion": "Tamil Nadu",
-        "postalCode": "635117",
-        "addressCountry": "IN"
-      }
+        streetAddress:
+          "First Floor, Shop No. 2 365 7 2, TK Nagar Service Road, OPP Shoolagiri Bus Stand",
+        addressLocality: "Shoolagiri",
+        addressRegion: "Tamil Nadu",
+        postalCode: "635117",
+        addressCountry: "IN",
+      },
     },
-    "areaServed": ["Shoolagiri", "Hosur", "Krishnagiri", "Bangalore"],
-    "hasOfferCatalog": {
+    areaServed: ["Shoolagiri", "Hosur", "Krishnagiri", "Bangalore"],
+    hasOfferCatalog: {
       "@type": "OfferCatalog",
-      "name": service.type
-    }
+      name: service.type,
+    },
   };
 
   return (
@@ -144,7 +146,7 @@ function ServiceDetail() {
                 {service.title}
               </h1>
             </div>
-            
+
             {/* Share Page Button */}
             <button
               onClick={handleShare}
@@ -170,7 +172,6 @@ function ServiceDetail() {
       <section className="py-16 md:py-24 bg-background">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            
             {/* LEFT COLUMN - Visual Component Showcase & Specs */}
             <div className="lg:col-span-5 flex flex-col gap-8">
               {/* Image Container with Hover Effect */}
@@ -179,6 +180,8 @@ function ServiceDetail() {
                   src={service.image}
                   alt={service.title}
                   loading="eager"
+                  fetchPriority="high"
+                  decoding="sync"
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md rounded-xl px-3 py-1.5 text-[11px] font-bold text-white uppercase tracking-wider">
@@ -202,13 +205,13 @@ function ServiceDetail() {
                 <h3 className="text-xs font-bold text-muted-foreground uppercase tracking-[0.15em] mb-4 pb-1 border-b border-border">
                   Service Specifications
                 </h3>
-                
+
                 <div className="flex flex-col divide-y divide-border/60">
                   <div className="py-3 flex justify-between text-sm">
                     <span className="text-muted-foreground font-semibold">Service Type</span>
                     <span className="text-foreground font-bold">{service.type}</span>
                   </div>
-                  
+
                   <div className="py-3 flex justify-between text-sm">
                     <span className="text-muted-foreground font-semibold flex items-center gap-2">
                       <Clock className="h-4 w-4 text-primary shrink-0" />
@@ -222,7 +225,9 @@ function ServiceDetail() {
                       <ShieldCheck className="h-4 w-4 text-accent shrink-0" />
                       Warranty Coverage
                     </span>
-                    <span className="text-foreground font-bold text-accent">{service.warranty}</span>
+                    <span className="text-foreground font-bold text-accent">
+                      {service.warranty}
+                    </span>
                   </div>
 
                   {/* Render extra parameters/custom fields if present */}
@@ -244,7 +249,7 @@ function ServiceDetail() {
                     We install only premium Parker/Hallite oil seal kits.
                   </p>
                 </div>
-                
+
                 <div className="border border-border/60 rounded-xl p-4 bg-muted/20 flex flex-col gap-2">
                   <Wrench className="h-6 w-6 text-primary" />
                   <div className="text-xs font-bold text-foreground">Dyno Tested</div>
@@ -257,7 +262,6 @@ function ServiceDetail() {
 
             {/* RIGHT COLUMN - Narrative Copy & Detailed Technical Breakdown */}
             <div className="lg:col-span-7 flex flex-col gap-8">
-              
               {/* Detailed SEO Copywriting (Narrative Description) */}
               <div className="flex flex-col gap-4">
                 <h2 className="font-display text-2xl font-bold text-foreground">
@@ -311,7 +315,7 @@ function ServiceDetail() {
                           }`}
                         />
                       </button>
-                      
+
                       {activeFaq === idx && (
                         <div className="p-4 pt-0 text-xs md:text-sm text-muted-foreground border-t border-border/50 leading-relaxed bg-muted/10">
                           {faq.a}
@@ -332,10 +336,11 @@ function ServiceDetail() {
                       Ready to Book or Need a Price Estimate?
                     </h4>
                     <p className="text-xs text-muted-foreground">
-                      Consult directly with a fluid power engineer on WhatsApp for transparent quotation sheets.
+                      Consult directly with a fluid power engineer on WhatsApp for transparent
+                      quotation sheets.
                     </p>
                   </div>
-                  
+
                   <a
                     href={whatsappQuoteLink}
                     target="_blank"
@@ -347,7 +352,6 @@ function ServiceDetail() {
                   </a>
                 </div>
               </div>
-
             </div>
           </div>
         </div>

@@ -33,7 +33,9 @@ function About() {
               alt="RVS Hydraulics shop"
               width={1024}
               height={768}
-              loading="lazy"
+              loading="eager"
+              fetchPriority="high"
+              decoding="sync"
               className="relative w-full rounded-2xl border border-border/30 object-cover shadow-industrial"
             />
           </div>
@@ -45,17 +47,15 @@ function About() {
               Built on <span className="text-gradient-brand">Industrial Trust</span>
             </h2>
             <p className="mt-6 text-sm leading-[1.8] text-muted-foreground md:text-base">
-              Established in January 2022, RVS Hydraulics started with a simple mission — make genuine
-              hydraulic parts and quality service accessible to every industry
-              around Shoolagiri. Today we work with manufacturing plants,
-              workshops, contractors and equipment owners across Tamil Nadu and
-              Karnataka.
+              Established in January 2022, RVS Hydraulics started with a simple mission — make
+              genuine hydraulic parts and quality service accessible to every industry around
+              Shoolagiri. Today we work with manufacturing plants, workshops, contractors and
+              equipment owners across Tamil Nadu and Karnataka.
             </p>
             <p className="mt-3 text-sm leading-[1.8] text-muted-foreground md:text-base">
-              From a single hose assembly to a full custom power pack, our team
-              brings the same engineering discipline and honest pricing to every
-              job. All sales and services — Hydraulic fittings, pumps, cylinders,
-              valves, hoses, and more.
+              From a single hose assembly to a full custom power pack, our team brings the same
+              engineering discipline and honest pricing to every job. All sales and services —
+              Hydraulic fittings, pumps, cylinders, valves, hoses, and more.
             </p>
 
             {/* Stats row */}
@@ -76,8 +76,7 @@ function About() {
               What Drives Us
             </div>
             <h2 className="mt-3 font-display text-3xl font-bold md:text-5xl">
-              Mission, Promise &{" "}
-              <span className="text-gradient-brand">People</span>
+              Mission, Promise & <span className="text-gradient-brand">People</span>
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
               The pillars that define how we operate and serve the industrial community.
@@ -110,12 +109,8 @@ function About() {
                 <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-brand text-primary-foreground shadow-lg transition-transform group-hover:scale-110">
                   <Icon className="h-5 w-5" />
                 </div>
-                <h3 className="mt-5 font-display text-xl font-semibold">
-                  {t}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {d}
-                </p>
+                <h3 className="mt-5 font-display text-xl font-semibold">{t}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{d}</p>
               </div>
             ))}
           </div>
@@ -135,15 +130,14 @@ function About() {
               <span className="text-gradient-accent">we cover it all</span>
             </h2>
             <p className="mt-6 text-sm leading-[1.8] text-muted-foreground md:text-base">
-              Our technicians work on hydraulic pumps, cylinders, valves, power
-              packs, hoses and accessories from leading global and Indian brands.
+              Our technicians work on hydraulic pumps, cylinders, valves, power packs, hoses and
+              accessories from leading global and Indian brands.
             </p>
             <Link
               to="/contact"
               className="mt-8 inline-flex items-center gap-2 rounded-xl bg-gradient-brand px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-industrial transition-all hover:shadow-glow-gold hover:scale-[1.02]"
             >
-              Talk to Our Team{" "}
-              <ArrowRight className="h-4 w-4" />
+              Talk to Our Team <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
           <div className="reveal-right relative">
@@ -153,6 +147,7 @@ function About() {
               width={1024}
               height={768}
               loading="lazy"
+              decoding="async"
               className="relative w-full rounded-2xl border border-border/30 object-cover shadow-industrial"
             />
           </div>

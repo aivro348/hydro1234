@@ -8,7 +8,8 @@ import { usePageReveal } from "@/hooks/useScrollReveal";
 import { SEO } from "@/components/site/SEO";
 
 const TITLE = "Professional Hydraulic Repair & Services | RVS Hydraulics Shoolagiri";
-const DESC = "Expert hydraulic cylinder repair, pump maintenance, rod honing, hydraulic piston repair, and high-pressure hose assembly in Shoolagiri & Hosur.";
+const DESC =
+  "Expert hydraulic cylinder repair, pump maintenance, rod honing, hydraulic piston repair, and high-pressure hose assembly in Shoolagiri & Hosur.";
 
 export const Route = createFileRoute("/services")({
   component: Services,
@@ -42,7 +43,6 @@ function Services() {
       <section className="pt-32 pb-24 md:pt-36 md:pb-28 bg-gradient-hero relative overflow-hidden">
         <div className="absolute inset-0 grid-pattern opacity-10" />
         <div className="mx-auto max-w-7xl px-4 md:px-6 relative z-10">
-          
           {/* Page Header */}
           <div className="text-center mb-16">
             <div className="text-xs font-bold uppercase tracking-[0.25em] text-primary bg-primary/5 px-4 py-1.5 rounded-full inline-block">
@@ -52,7 +52,8 @@ function Services() {
               Our Professional <span className="text-gradient-brand">Hydraulic Services</span>
             </h1>
             <p className="mt-4 text-sm md:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              State-of-the-art repair, reconditioning, and diagnostics of industrial fluid power systems. Handled by highly experienced technicians.
+              State-of-the-art repair, reconditioning, and diagnostics of industrial fluid power
+              systems. Handled by highly experienced technicians.
             </p>
           </div>
 
@@ -62,11 +63,11 @@ function Services() {
               {[
                 { id: "all", label: "All" },
                 { id: "cylinder", label: "Hydraulic Cylinder Repair & Maintenance Services" },
-                { id: "pump", label: "Hydraulic Pump Repair & Services" }
+                { id: "pump", label: "Hydraulic Pump Repair & Services" },
               ].map((tab) => (
                 <button
                   key={tab.id}
-                  onClick={() => setActiveTab(tab.id as any)}
+                  onClick={() => setActiveTab(tab.id as "cylinder" | "pump")}
                   className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300 ${
                     activeTab === tab.id
                       ? "bg-primary text-primary-foreground shadow-md scale-105"
@@ -85,11 +86,12 @@ function Services() {
               <div>
                 <div className="mb-8 flex items-center justify-between border-b border-border/80 pb-4">
                   <h2 className="font-display text-2xl font-bold text-foreground">
-                    Hydraulic Cylinder Repair & Maintenance Services ({SERVICES.filter(s => s.category === "cylinder").length})
+                    Hydraulic Cylinder Repair & Maintenance Services (
+                    {SERVICES.filter((s) => s.category === "cylinder").length})
                   </h2>
                 </div>
                 <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                  {SERVICES.filter(s => s.category === "cylinder").map((s, idx) => (
+                  {SERVICES.filter((s) => s.category === "cylinder").map((s, idx) => (
                     <Link
                       key={s.id}
                       to="/services/$serviceId"
@@ -105,7 +107,9 @@ function Services() {
                             alt={s.title}
                             width={600}
                             height={450}
-                            loading="lazy"
+                            loading={idx < 4 ? "eager" : "lazy"}
+                            fetchPriority={idx < 4 ? "high" : "auto"}
+                            decoding="async"
                             className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                           />
                           <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md rounded-lg px-2.5 py-1 text-[10px] font-bold text-white uppercase tracking-wider">
@@ -118,15 +122,19 @@ function Services() {
                           <h3 className="font-display text-xl font-bold text-foreground group-hover:text-primary transition-colors leading-tight">
                             {s.title}
                           </h3>
-                          
+
                           <div className="flex flex-col gap-1 text-xs border-t border-border/60 pt-3">
-                            <div className="text-muted-foreground font-medium">Request for Price</div>
+                            <div className="text-muted-foreground font-medium">
+                              Request for Price
+                            </div>
                             <div className="text-foreground">
                               <span className="font-semibold text-muted-foreground">Type : </span>
                               {s.type}
                             </div>
                             <div className="text-foreground">
-                              <span className="font-semibold text-muted-foreground">Duration : </span>
+                              <span className="font-semibold text-muted-foreground">
+                                Duration :{" "}
+                              </span>
                               {s.duration}
                             </div>
                           </div>
@@ -150,11 +158,12 @@ function Services() {
               <div>
                 <div className="mb-8 flex items-center justify-between border-b border-border/80 pb-4">
                   <h2 className="font-display text-2xl font-bold text-foreground">
-                    Hydraulic Pump Repair & Services ({SERVICES.filter(s => s.category === "pump").length})
+                    Hydraulic Pump Repair & Services (
+                    {SERVICES.filter((s) => s.category === "pump").length})
                   </h2>
                 </div>
                 <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                  {SERVICES.filter(s => s.category === "pump").map((s, idx) => (
+                  {SERVICES.filter((s) => s.category === "pump").map((s, idx) => (
                     <Link
                       key={s.id}
                       to="/services/$serviceId"
@@ -170,7 +179,9 @@ function Services() {
                             alt={s.title}
                             width={600}
                             height={450}
-                            loading="lazy"
+                            loading={idx < 4 ? "eager" : "lazy"}
+                            fetchPriority={idx < 4 ? "high" : "auto"}
+                            decoding="async"
                             className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                           />
                           <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md rounded-lg px-2.5 py-1 text-[10px] font-bold text-white uppercase tracking-wider">
@@ -183,15 +194,19 @@ function Services() {
                           <h3 className="font-display text-xl font-bold text-foreground group-hover:text-primary transition-colors leading-tight">
                             {s.title}
                           </h3>
-                          
+
                           <div className="flex flex-col gap-1 text-xs border-t border-border/60 pt-3">
-                            <div className="text-muted-foreground font-medium">Request for Price</div>
+                            <div className="text-muted-foreground font-medium">
+                              Request for Price
+                            </div>
                             <div className="text-foreground">
                               <span className="font-semibold text-muted-foreground">Type : </span>
                               {s.type}
                             </div>
                             <div className="text-foreground">
-                              <span className="font-semibold text-muted-foreground">Duration : </span>
+                              <span className="font-semibold text-muted-foreground">
+                                Duration :{" "}
+                              </span>
                               {s.duration}
                             </div>
                           </div>
@@ -220,14 +235,18 @@ function Services() {
             <div className="relative grid items-center gap-8 p-10 md:grid-cols-[1fr_auto] md:p-16">
               <div>
                 <h3 className="font-display text-3xl font-extrabold md:text-4xl text-foreground">
-                  Need a Custom Hydraulic <span className="text-gradient-brand">Service or Solution?</span>
+                  Need a Custom Hydraulic{" "}
+                  <span className="text-gradient-brand">Service or Solution?</span>
                 </h3>
                 <p className="mt-3 text-muted-foreground text-sm md:text-base max-w-2xl">
-                  Contact our expert engineering team in Shoolagiri, Hosur today. We specialize in custom cylinder fabrication, power pack design, and high-pressure hose assemblies.
+                  Contact our expert engineering team in Shoolagiri, Hosur today. We specialize in
+                  custom cylinder fabrication, power pack design, and high-pressure hose assemblies.
                 </p>
               </div>
               <a
-                href={waLink("Hi RVS Hydraulics, I need assistance with a custom hydraulic servicing requirement.")}
+                href={waLink(
+                  "Hi RVS Hydraulics, I need assistance with a custom hydraulic servicing requirement.",
+                )}
                 target="_blank"
                 rel="noopener"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-brand px-6 py-4 text-sm font-bold text-primary-foreground shadow-industrial hover:shadow-glow-gold transition-all duration-300 animate-pulse-subtle"

@@ -21,7 +21,7 @@ export default defineConfig(({ mode }) => {
     ],
     resolve: {
       alias: {
-        "@": `${process.cwd()}/src`
+        "@": `${process.cwd()}/src`,
       },
       dedupe: [
         "react",
@@ -29,8 +29,8 @@ export default defineConfig(({ mode }) => {
         "react/jsx-runtime",
         "react/jsx-dev-runtime",
         "@tanstack/react-query",
-        "@tanstack/query-core"
-      ]
+        "@tanstack/query-core",
+      ],
     },
     server: {
       port: 3000,

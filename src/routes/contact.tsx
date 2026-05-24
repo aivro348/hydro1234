@@ -29,7 +29,7 @@ function Contact() {
   useEffect(() => {
     document.title = TITLE;
   }, []);
-  
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -39,7 +39,7 @@ function Contact() {
 
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    
+
     const whatsappMessage = `🛠️ *RVS HYDRAULICS - ENQUIRY* 🛠️\n---------------------------------\n👤 Name: ${name}\n📧 Email: ${email || "Not Provided"}\n🏭 Company: ${company || "Not Provided"}\n📞 Phone: ${phone}\n\n📝 *Message*:\n${message}\n---------------------------------\n_Submitted via website_`;
 
     const encodedMessage = encodeURIComponent(whatsappMessage);
@@ -61,7 +61,8 @@ function Contact() {
                 Ready to serve <span className="text-gradient-brand">your systems</span>
               </h1>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base pr-4">
-                Visit our workshop, send an email, or complete our contact form for a fast technical quote.
+                Visit our workshop, send an email, or complete our contact form for a fast technical
+                quote.
               </p>
             </div>
 
@@ -102,7 +103,8 @@ function Contact() {
                   Send a <span className="text-gradient-brand">Message</span>
                 </h2>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Fill out the form below and our team will get back to you with a professional quote or assistance shortly.
+                  Fill out the form below and our team will get back to you with a professional
+                  quote or assistance shortly.
                 </p>
               </div>
 
@@ -111,9 +113,12 @@ function Contact() {
                   <div className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-[#25D366]/10 text-[#25D366] mb-6">
                     <CheckCircle2 className="h-10 w-10" />
                   </div>
-                  <h3 className="font-display text-2xl font-bold text-foreground">Message Ready to Send!</h3>
+                  <h3 className="font-display text-2xl font-bold text-foreground">
+                    Message Ready to Send!
+                  </h3>
                   <p className="mt-3 text-sm text-muted-foreground max-w-md">
-                    We've opened WhatsApp with your prepared message. If it didn't launch automatically, please click below or call us directly.
+                    We've opened WhatsApp with your prepared message. If it didn't launch
+                    automatically, please click below or call us directly.
                   </p>
                   <div className="mt-8 flex gap-4">
                     <button
@@ -135,7 +140,8 @@ function Contact() {
                   <div className="grid gap-6 sm:grid-cols-2">
                     <div className="space-y-2">
                       <label className="text-sm font-bold text-foreground flex items-center gap-2">
-                        <User className="h-4 w-4 text-primary" /> Full Name <span className="text-destructive">*</span>
+                        <User className="h-4 w-4 text-primary" /> Full Name{" "}
+                        <span className="text-destructive">*</span>
                       </label>
                       <input
                         required
@@ -148,7 +154,8 @@ function Contact() {
                     </div>
                     <div className="space-y-2">
                       <label className="text-sm font-bold text-foreground flex items-center gap-2">
-                        <Phone className="h-4 w-4 text-primary" /> Phone Number <span className="text-destructive">*</span>
+                        <Phone className="h-4 w-4 text-primary" /> Phone Number{" "}
+                        <span className="text-destructive">*</span>
                       </label>
                       <input
                         required
@@ -190,7 +197,8 @@ function Contact() {
 
                   <div className="space-y-2">
                     <label className="text-sm font-bold text-foreground flex items-center gap-2">
-                      <FileText className="h-4 w-4 text-primary" /> How can we help you? <span className="text-destructive">*</span>
+                      <FileText className="h-4 w-4 text-primary" /> How can we help you?{" "}
+                      <span className="text-destructive">*</span>
                     </label>
                     <textarea
                       required
@@ -212,14 +220,14 @@ function Contact() {
                       Submit Enquiry
                     </button>
                     <p className="mt-4 text-center text-xs text-muted-foreground">
-                      By submitting, your message will be forwarded securely to our technical team via WhatsApp.
+                      By submitting, your message will be forwarded securely to our technical team
+                      via WhatsApp.
                     </p>
                   </div>
                 </form>
               )}
             </div>
           </div>
-
         </div>
       </section>
     </>
@@ -232,7 +240,7 @@ function ContactCard({
   value,
   href,
 }: {
-  icon: any;
+  icon: React.ElementType;
   title: string;
   value: string;
   href?: string;
@@ -251,11 +259,7 @@ function ContactCard({
     </div>
   );
   return href ? (
-    <a
-      href={href}
-      target={href.startsWith("http") ? "_blank" : undefined}
-      rel="noopener"
-    >
+    <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener">
       {inner}
     </a>
   ) : (

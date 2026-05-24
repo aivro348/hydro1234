@@ -24,8 +24,8 @@ export function Footer() {
             </div>
           </div>
           <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
-            Premium hydraulic parts sales & service for industrial customers
-            across Shoolagiri, Hosur, Krishnagiri and Bangalore region.
+            Premium hydraulic parts sales & service for industrial customers across Shoolagiri,
+            Hosur, Krishnagiri and Bangalore region.
           </p>
         </div>
 
@@ -49,9 +49,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="text-sm font-semibold uppercase tracking-wider text-primary">
-            Contact
-          </h4>
+          <h4 className="text-sm font-semibold uppercase tracking-wider text-primary">Contact</h4>
           <ul className="mt-5 space-y-4 text-sm text-steel-foreground">
             <li className="flex gap-3">
               <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-gradient-brand">
@@ -65,10 +63,7 @@ export function Footer() {
               <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-gradient-accent">
                 <Mail className="h-3.5 w-3.5 text-accent-foreground" />
               </div>
-              <a
-                href={`mailto:${SITE.email}`}
-                className="break-all hover:text-accent transition"
-              >
+              <a href={`mailto:${SITE.email}`} className="break-all hover:text-accent transition">
                 {SITE.email}
               </a>
             </li>
@@ -82,9 +77,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="text-sm font-semibold uppercase tracking-wider text-primary">
-            Business
-          </h4>
+          <h4 className="text-sm font-semibold uppercase tracking-wider text-primary">Business</h4>
           <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
             <li>GST: {SITE.gst}</li>
             <li>Mon – Sat · 9:00 AM – 8:00 PM</li>
@@ -110,9 +103,7 @@ export function Footer() {
 
       <div className="relative border-t border-border/50">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-6 text-xs text-muted-foreground md:flex-row md:px-6">
-          <div>
-            © {new Date().getFullYear()} RVS Hydraulics. All rights reserved.
-          </div>
+          <div>© {new Date().getFullYear()} RVS Hydraulics. All rights reserved.</div>
           <div>
             Developed by{" "}
             <a

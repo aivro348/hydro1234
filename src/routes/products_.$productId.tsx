@@ -12,7 +12,7 @@ import {
   CheckCircle2,
   AlertCircle,
   Package,
-  BadgeCheck
+  BadgeCheck,
 } from "lucide-react";
 import { CATALOG } from "@/lib/catalog";
 import { waLink } from "@/lib/site";
@@ -44,7 +44,8 @@ function ProductDetail() {
           Product Not Found
         </h1>
         <p className="text-muted-foreground max-w-md mx-auto mb-8">
-          The hydraulic component you are seeking is either out of stock or does not exist. Check our catalogue for available items.
+          The hydraulic component you are seeking is either out of stock or does not exist. Check
+          our catalogue for available items.
         </p>
         <Link
           to="/products"
@@ -58,12 +59,12 @@ function ProductDetail() {
 
   // Pre-filled WhatsApp message for booking or details
   const whatsappQuoteLink = waLink(
-    `Hi RVS Hydraulics, I'd like a price quote and stock availability details for the product: ${product.title}.`
+    `Hi RVS Hydraulics, I'd like a price quote and stock availability details for the product: ${product.title}.`,
   );
 
   // Pre-filled WhatsApp message for workshop photos
   const whatsappPhotoLink = waLink(
-    `Hi RVS Hydraulics, I am interested in procuring ${product.title}. Can you please share some actual photos of this product in your workshop?`
+    `Hi RVS Hydraulics, I am interested in procuring ${product.title}. Can you please share some actual photos of this product in your workshop?`,
   );
 
   // Handle URL share
@@ -78,19 +79,19 @@ function ProductDetail() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": product.title,
-    "image": product.image,
-    "description": product.metaDescription,
-    "brand": {
+    name: product.title,
+    image: product.image,
+    description: product.metaDescription,
+    brand: {
       "@type": "Brand",
-      "name": "RVS Hydraulics"
+      name: "RVS Hydraulics",
     },
-    "offers": {
+    offers: {
       "@type": "AggregateOffer",
-      "priceCurrency": "INR",
-      "priceRange": "₹₹",
-      "areaServed": ["Shoolagiri", "Hosur", "Krishnagiri", "Bangalore"]
-    }
+      priceCurrency: "INR",
+      priceRange: "₹₹",
+      areaServed: ["Shoolagiri", "Hosur", "Krishnagiri", "Bangalore"],
+    },
   };
 
   return (
@@ -136,11 +137,9 @@ function ProductDetail() {
               <h1 className="font-display text-3xl font-extrabold tracking-tight md:text-5xl lg:text-6xl text-foreground animate-slide-up">
                 {product.title}
               </h1>
-              <p className="mt-3 text-sm md:text-base text-muted-foreground">
-                {product.short}
-              </p>
+              <p className="mt-3 text-sm md:text-base text-muted-foreground">{product.short}</p>
             </div>
-            
+
             {/* Share product */}
             <button
               onClick={handleShare}
@@ -166,7 +165,6 @@ function ProductDetail() {
       <section className="py-16 md:py-24 bg-background">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            
             {/* LEFT COLUMN - Product Image & Tech Specs */}
             <div className="lg:col-span-5 flex flex-col gap-8">
               {/* Product Showcase card */}
@@ -175,6 +173,8 @@ function ProductDetail() {
                   src={product.image}
                   alt={product.title}
                   loading="eager"
+                  fetchPriority="high"
+                  decoding="sync"
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                 />
                 <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md rounded-xl px-3 py-1.5 text-[11px] font-bold text-white uppercase tracking-wider">
@@ -198,12 +198,14 @@ function ProductDetail() {
                 <h3 className="text-xs font-bold text-muted-foreground uppercase tracking-[0.15em] mb-4 pb-1 border-b border-border">
                   Technical Specifications
                 </h3>
-                
+
                 <div className="flex flex-col divide-y divide-border/60">
                   {product.technicalSpecs.map((spec) => (
                     <div key={spec.label} className="py-3 flex justify-between text-sm">
                       <span className="text-muted-foreground font-semibold">{spec.label}</span>
-                      <span className="text-foreground font-bold text-right pl-4">{spec.value}</span>
+                      <span className="text-foreground font-bold text-right pl-4">
+                        {spec.value}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -217,7 +219,8 @@ function ProductDetail() {
                 <div>
                   <div className="text-sm font-bold text-foreground">Certified OEM Quality</div>
                   <p className="text-[11px] text-muted-foreground leading-normal mt-0.5">
-                    We supply only certified genuine mechanical materials and spare parts, ensuring durability in extreme operating cycles.
+                    We supply only certified genuine mechanical materials and spare parts, ensuring
+                    durability in extreme operating cycles.
                   </p>
                 </div>
               </div>
@@ -225,7 +228,6 @@ function ProductDetail() {
 
             {/* RIGHT COLUMN - Sales Copy & Product details */}
             <div className="lg:col-span-7 flex flex-col gap-8">
-              
               {/* Product Deep Sales Copy */}
               <div className="flex flex-col gap-4">
                 <h2 className="font-display text-2xl font-bold text-foreground">
@@ -252,7 +254,7 @@ function ProductDetail() {
                       Engineered for zero pressure fatigue under high cycles.
                     </div>
                   </div>
-                  
+
                   <div className="flex gap-2 items-start text-xs text-muted-foreground">
                     <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
                     <div>
@@ -301,7 +303,7 @@ function ProductDetail() {
                           }`}
                         />
                       </button>
-                      
+
                       {activeFaq === idx && (
                         <div className="p-4 pt-0 text-xs md:text-sm text-muted-foreground border-t border-border/50 leading-relaxed bg-muted/10">
                           {faq.a}
@@ -322,10 +324,11 @@ function ProductDetail() {
                       Ready to Order or Request a Stock Quote?
                     </h4>
                     <p className="text-xs text-muted-foreground">
-                      Connect with RVS sales representatives on WhatsApp to receive quick price and availability quotes.
+                      Connect with RVS sales representatives on WhatsApp to receive quick price and
+                      availability quotes.
                     </p>
                   </div>
-                  
+
                   <a
                     href={whatsappQuoteLink}
                     target="_blank"
@@ -337,7 +340,6 @@ function ProductDetail() {
                   </a>
                 </div>
               </div>
-
             </div>
           </div>
         </div>

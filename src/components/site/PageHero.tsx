@@ -32,11 +32,17 @@ export function PageHero({
           {title}
         </h1>
         {subtitle && (
-          <p className="reveal-section mt-5 max-w-2xl text-base text-muted-foreground md:text-lg" data-delay="100">
+          <p
+            className="reveal-section mt-5 max-w-2xl text-base text-muted-foreground md:text-lg"
+            data-delay="100"
+          >
             {subtitle}
           </p>
         )}
-        <div className="reveal-section mt-7 flex items-center gap-2 text-sm text-muted-foreground" data-delay="200">
+        <div
+          className="reveal-section mt-7 flex items-center gap-2 text-sm text-muted-foreground"
+          data-delay="200"
+        >
           <Link to="/" className="transition hover:text-primary">
             Home
           </Link>

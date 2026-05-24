@@ -26,7 +26,6 @@ function Products() {
       <section className="pt-32 pb-24 md:pt-36 md:pb-28 bg-gradient-hero relative overflow-hidden">
         <div className="absolute inset-0 grid-pattern opacity-10" />
         <div className="mx-auto max-w-7xl px-4 md:px-6 relative z-10">
-          
           <div className="text-center mb-14">
             <div className="text-xs font-bold uppercase tracking-[0.2em] text-primary bg-primary/5 px-4 py-1.5 rounded-full inline-block mb-3">
               Products Catalog
@@ -35,7 +34,8 @@ function Products() {
               Hydraulic <span className="text-gradient-brand">Products Catalog</span>
             </h1>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground max-w-2xl mx-auto md:text-base">
-              Industrial-grade hydraulic components, spares, and customized power assemblies. Sourced from certified manufacturers and dynamically tested.
+              Industrial-grade hydraulic components, spares, and customized power assemblies.
+              Sourced from certified manufacturers and dynamically tested.
             </p>
           </div>
 
@@ -55,7 +55,9 @@ function Products() {
                       alt={c.title}
                       width={800}
                       height={800}
-                      loading="lazy"
+                      loading={idx < 4 ? "eager" : "lazy"}
+                      fetchPriority={idx < 4 ? "high" : "auto"}
+                      decoding="async"
                       className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-5">
@@ -64,7 +66,7 @@ function Products() {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="p-6">
                     <h3 className="font-display text-xl font-bold text-foreground group-hover:text-primary transition-colors">
                       {c.title}

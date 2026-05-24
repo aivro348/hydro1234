@@ -34,8 +34,7 @@ import useEmblaCarousel from "embla-carousel-react";
 
 // The HERO slider now uses CATALOG dynamically
 
-const TITLE =
-  "RVS Hydraulics | Premium Hydraulic Pump & Cylinder Service in Shoolagiri";
+const TITLE = "RVS Hydraulics | Premium Hydraulic Pump & Cylinder Service in Shoolagiri";
 const DESC =
   "Trusted hydraulic pump repair, cylinder service, hose pipes, fittings, seal kits, power packs & accessories in Shoolagiri, Hosur and Krishnagiri.";
 
@@ -52,7 +51,9 @@ function HomePage() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isSliderPlaying, setIsSliderPlaying] = useState(true);
-  const [activeDiagnosticTab, setActiveDiagnosticTab] = useState<"pump" | "cylinder" | "hose" | "powerpack">("pump");
+  const [activeDiagnosticTab, setActiveDiagnosticTab] = useState<
+    "pump" | "cylinder" | "hose" | "powerpack"
+  >("pump");
   const navigate = useNavigate();
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
@@ -88,68 +89,92 @@ function HomePage() {
   const faqs = [
     {
       q: "What is the typical turnaround time for a hydraulic pump repair?",
-      a: "Most standard hydraulic pump and motor repairs are completed within 2 to 4 business days. Emergency rebuild services are available for critical factory breakdowns to minimize downtime."
+      a: "Most standard hydraulic pump and motor repairs are completed within 2 to 4 business days. Emergency rebuild services are available for critical factory breakdowns to minimize downtime.",
     },
     {
       q: "Do you supply genuine OEM seal kits?",
-      a: "Yes, we supply only genuine, high-grade OEM seal kits (including Parker, Hallite, and Trelleborg seals) to guarantee high temperature and pressure tolerance for long-lasting operation."
+      a: "Yes, we supply only genuine, high-grade OEM seal kits (including Parker, Hallite, and Trelleborg seals) to guarantee high temperature and pressure tolerance for long-lasting operation.",
     },
     {
       q: "Do you offer on-site hydraulic cylinder inspection and hose crimping in Hosur and Krishnagiri?",
-      a: "Yes! Our mobile service engineers offer on-site diagnostics, high-pressure hose crimping, oil filtration support, and cylinder extraction across industrial corridors in Shoolagiri, Hosur, Krishnagiri, and Bangalore."
+      a: "Yes! Our mobile service engineers offer on-site diagnostics, high-pressure hose crimping, oil filtration support, and cylinder extraction across industrial corridors in Shoolagiri, Hosur, Krishnagiri, and Bangalore.",
     },
     {
       q: "Do you provide a warranty on your rebuild services?",
-      a: "Absolutely. All our hydraulic repairs, pump rebuilds, and power pack installations are pressure-tested in our workshop and come with a comprehensive warranty covering craftsmanship and replacement parts."
-    }
+      a: "Absolutely. All our hydraulic repairs, pump rebuilds, and power pack installations are pressure-tested in our workshop and come with a comprehensive warranty covering craftsmanship and replacement parts.",
+    },
   ];
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": faqs.map(faq => ({
+    mainEntity: faqs.map((faq) => ({
       "@type": "Question",
-      "name": faq.q,
-      "acceptedAnswer": {
+      name: faq.q,
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": faq.a
-      }
-    }))
+        text: faq.a,
+      },
+    })),
   };
 
   const advisoryData = {
     pump: {
       title: "Hydraulic Pump Diagnostics",
       symptom: "Losing pressure, overheating, or making loud whining noises.",
-      procedure: "We run pressure calibrations, check internal tolerances, and replace internal wear parts (pistons, vanes, swashplates) using genuine OEM components.",
-      features: ["Vane, Piston & Gear Pump capability", "Dynamic flow-rate pressure testing", "OEM sealing & calibration check"],
+      procedure:
+        "We run pressure calibrations, check internal tolerances, and replace internal wear parts (pistons, vanes, swashplates) using genuine OEM components.",
+      features: [
+        "Vane, Piston & Gear Pump capability",
+        "Dynamic flow-rate pressure testing",
+        "OEM sealing & calibration check",
+      ],
       ctaText: "Inquire About Pump Repair",
-      waMessage: "Hi RVS Hydraulics, my hydraulic pump is losing pressure/making noise. I'd like a quote for inspection and repair."
+      waMessage:
+        "Hi RVS Hydraulics, my hydraulic pump is losing pressure/making noise. I'd like a quote for inspection and repair.",
     },
     cylinder: {
       title: "Cylinder Honing & Resealing",
       symptom: "External fluid leaks, drift in lifting arms, or reduced load capacity.",
-      procedure: "Cylinder extraction, internal rod inspection, micro-honing of bore cylinders, chrome-repolishing, and replacement with premium multi-lip seal kits (Parker/Hallite).",
-      features: ["Single & double acting cylinder capability", "Heavy-duty poly-urethane seal kit fittings", "Fast turnaround to minimize downtime"],
+      procedure:
+        "Cylinder extraction, internal rod inspection, micro-honing of bore cylinders, chrome-repolishing, and replacement with premium multi-lip seal kits (Parker/Hallite).",
+      features: [
+        "Single & double acting cylinder capability",
+        "Heavy-duty poly-urethane seal kit fittings",
+        "Fast turnaround to minimize downtime",
+      ],
       ctaText: "Inquire About Cylinder Service",
-      waMessage: "Hi RVS Hydraulics, I have a leaking hydraulic cylinder. I'd like to ask about seal replacement or repair services."
+      waMessage:
+        "Hi RVS Hydraulics, I have a leaking hydraulic cylinder. I'd like to ask about seal replacement or repair services.",
     },
     hose: {
       title: "High-Pressure Hose Assembly",
       symptom: "Burst hoses, cracked outer shells, or leaking end-couplings.",
-      procedure: "Precision crimping using multi-spiral steel wire reinforced hoses (up to 400+ bar) tailored to your exact length and connection requirements.",
-      features: ["Same-day emergency hose crimping", "High-tensile steel & brass fittings", "Double-braided high-durability hoses"],
+      procedure:
+        "Precision crimping using multi-spiral steel wire reinforced hoses (up to 400+ bar) tailored to your exact length and connection requirements.",
+      features: [
+        "Same-day emergency hose crimping",
+        "High-tensile steel & brass fittings",
+        "Double-braided high-durability hoses",
+      ],
       ctaText: "Inquire About Hose Fitting",
-      waMessage: "Hi RVS Hydraulics, I need a high-pressure hose assembly crimped. Can I get details on available sizes and fittings?"
+      waMessage:
+        "Hi RVS Hydraulics, I need a high-pressure hose assembly crimped. Can I get details on available sizes and fittings?",
     },
     powerpack: {
       title: "Custom Power Pack Engineering",
       symptom: "Need an independent, compact, or high-tonnage hydraulic force system.",
-      procedure: "Design and assembly of custom AC/DC hydraulic power units with highly reliable motor-pump integrations, custom manifolds, and solenoid valve banks.",
-      features: ["Tailored reservoir capacity & flow rate", "Complete engineering & wiring design", "Standard warranty and on-site setup support"],
+      procedure:
+        "Design and assembly of custom AC/DC hydraulic power units with highly reliable motor-pump integrations, custom manifolds, and solenoid valve banks.",
+      features: [
+        "Tailored reservoir capacity & flow rate",
+        "Complete engineering & wiring design",
+        "Standard warranty and on-site setup support",
+      ],
       ctaText: "Inquire About Power Units",
-      waMessage: "Hi RVS Hydraulics, I am looking to procure or service a custom hydraulic power pack. Let's discuss requirements."
-    }
+      waMessage:
+        "Hi RVS Hydraulics, I am looking to procure or service a custom hydraulic power pack. Let's discuss requirements.",
+    },
   };
 
   return (
@@ -173,6 +198,8 @@ function HomePage() {
               src={slide.image}
               alt={slide.title}
               loading={idx === 0 ? "eager" : "lazy"}
+              fetchPriority={idx === 0 ? "high" : "low"}
+              decoding={idx === 0 ? "sync" : "async"}
               className={`h-full w-full object-cover ${
                 currentSlide === idx ? "slide-kenburns" : ""
               }`}
@@ -204,7 +231,9 @@ function HomePage() {
               key={idx}
               onClick={() => goToSlide(idx)}
               className={`h-2 transition-all rounded-full ${
-                currentSlide === idx ? "w-6 bg-primary shadow-glow-gold" : "w-2 bg-white/50 hover:bg-white/80"
+                currentSlide === idx
+                  ? "w-6 bg-primary shadow-glow-gold"
+                  : "w-2 bg-white/50 hover:bg-white/80"
               }`}
               aria-label={`Go to slide ${idx + 1}`}
             />
@@ -216,13 +245,12 @@ function HomePage() {
         <div className="absolute inset-0 z-20 bg-gradient-to-r from-black/40 to-transparent" />
 
         {/* ─ Central Content Overlay ─ */}
-        <div className="absolute inset-0 z-30 flex flex-col justify-end pb-24 sm:pb-28 md:justify-center md:pb-0">
+        <div className="absolute inset-0 z-30 flex flex-col justify-end pb-20 sm:pb-24 md:pb-32 lg:pb-36">
           <div className="mx-auto w-full max-w-7xl px-6 sm:px-10 md:px-12">
-
             {/* Product name + description — each slide gets unique key to restart animation */}
-            <div 
-              key={`text-${currentSlide}`} 
-              className="max-w-2xl"
+            <div
+              key={`text-${currentSlide}`}
+              className="max-w-2xl pt-12 md:pt-16"
               onMouseEnter={() => setIsSliderPlaying(false)}
               onMouseLeave={() => setIsSliderPlaying(true)}
             >
@@ -233,7 +261,7 @@ function HomePage() {
               </span>
 
               {/* Product Title */}
-              <h1 className="slide-text-enter-delay font-display text-4xl font-extrabold leading-[1.08] tracking-wide text-white sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
+              <h1 className="slide-text-enter-delay font-display text-3xl font-extrabold leading-[1.08] tracking-wide text-white sm:text-4xl md:text-5xl lg:text-6xl drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
                 {CATALOG[currentSlide].title}
               </h1>
 
@@ -254,14 +282,12 @@ function HomePage() {
             </div>
           </div>
         </div>
-
       </section>
 
       {/* ─── DIAGNOSTIC DESK (HIGH-FIDELITY INTERACTIVE CONSOLE) ─── */}
       <section className="relative border-t border-border py-24 md:py-28 bg-steel/30 overflow-hidden">
         <div className="absolute inset-0 grid-pattern opacity-5" />
         <div className="mx-auto max-w-7xl px-4 md:px-6 relative z-10">
-          
           {/* Section Header */}
           <div className="reveal-section mx-auto max-w-3xl text-center mb-16">
             <div className="text-xs font-bold uppercase tracking-[0.25em] text-primary bg-primary/5 px-4 py-1.5 rounded-full inline-block mb-4">
@@ -271,43 +297,69 @@ function HomePage() {
               Identify & Solve Your <span className="text-gradient-accent">Hydraulic Problems</span>
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base max-w-2xl mx-auto">
-              View our engineering diagnostics, professional troubleshooting steps, and standard service guidelines for common industrial and mobile issues.
+              View our engineering diagnostics, professional troubleshooting steps, and standard
+              service guidelines for common industrial and mobile issues.
             </p>
           </div>
 
           {/* Interactive Console Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-            
             {/* LEFT SIDEBAR - Category Selector Buttons */}
             <div className="lg:col-span-4 flex flex-col gap-3">
               {[
-                { id: "pump", label: "Hydraulic Pump Diagnostics", icon: Cpu, desc: "Symptom logs, pressure drops, wear groups" },
-                { id: "cylinder", label: "Cylinder Honing & Resealing", icon: Layers, desc: "External leakage checks, piston drift" },
-                { id: "hose", label: "High-Pressure Hose Assembly", icon: Settings, desc: "Steel braiding, crimping specs, fittings" },
-                { id: "powerpack", label: "Custom Power Pack Engineering", icon: Compass, desc: "AC/DC reservoirs, valve stack manifolds" }
+                {
+                  id: "pump",
+                  label: "Hydraulic Pump Diagnostics",
+                  icon: Cpu,
+                  desc: "Symptom logs, pressure drops, wear groups",
+                },
+                {
+                  id: "cylinder",
+                  label: "Cylinder Honing & Resealing",
+                  icon: Layers,
+                  desc: "External leakage checks, piston drift",
+                },
+                {
+                  id: "hose",
+                  label: "High-Pressure Hose Assembly",
+                  icon: Settings,
+                  desc: "Steel braiding, crimping specs, fittings",
+                },
+                {
+                  id: "powerpack",
+                  label: "Custom Power Pack Engineering",
+                  icon: Compass,
+                  desc: "AC/DC reservoirs, valve stack manifolds",
+                },
               ].map((tab) => {
                 const TabIcon = tab.icon;
                 const isActive = activeDiagnosticTab === tab.id;
                 return (
                   <button
                     key={tab.id}
-                    onClick={() => setActiveDiagnosticTab(tab.id as any)}
+                    onClick={() => setActiveDiagnosticTab(tab.id as "cylinder" | "pump" | "hose" | "powerpack")}
                     className={`text-left p-5 rounded-2xl border transition-all duration-300 flex gap-4 items-center group cursor-pointer ${
                       isActive
                         ? "bg-card border-primary/40 shadow-glow-gold scale-[1.02]"
                         : "bg-card/45 border-border hover:bg-card hover:border-primary/20"
                     }`}
                   >
-                    <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-colors duration-300 ${
-                      isActive ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary group-hover:bg-primary/25"
-                    }`}>
+                    <div
+                      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-colors duration-300 ${
+                        isActive
+                          ? "bg-primary text-primary-foreground"
+                          : "bg-primary/10 text-primary group-hover:bg-primary/25"
+                      }`}
+                    >
                       <TabIcon className="h-5.5 w-5.5" />
                     </div>
                     <div>
                       <h3 className="text-sm font-extrabold text-foreground leading-snug group-hover:text-primary transition-colors">
                         {tab.label}
                       </h3>
-                      <p className="text-[11px] text-muted-foreground mt-0.5 leading-normal pr-2 line-clamp-1">{tab.desc}</p>
+                      <p className="text-[11px] text-muted-foreground mt-0.5 leading-normal pr-2 line-clamp-1">
+                        {tab.desc}
+                      </p>
                     </div>
                   </button>
                 );
@@ -322,13 +374,12 @@ function HomePage() {
                   pump: Cpu,
                   cylinder: Layers,
                   hose: Settings,
-                  powerpack: Compass
+                  powerpack: Compass,
                 };
                 const PanelIcon = activeIcons[activeDiagnosticTab];
 
                 return (
                   <div className="h-full flex flex-col justify-between rounded-3xl border border-border/80 bg-card p-8 shadow-industrial relative overflow-hidden animate-in fade-in duration-300">
-                    
                     {/* Monitor Decorative Scanning Lines */}
                     <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-primary/30 to-transparent animate-scan" />
                     <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-primary/5 rounded-full px-2.5 py-1 text-[9px] font-bold text-primary tracking-widest uppercase border border-primary/10">
@@ -346,19 +397,22 @@ function HomePage() {
                           <h3 className="font-display text-2xl font-extrabold tracking-wide text-foreground leading-none">
                             {activeData.title}
                           </h3>
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground mt-1.5 block">Certified Troubleshooting Protocol</span>
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground mt-1.5 block">
+                            Certified Troubleshooting Protocol
+                          </span>
                         </div>
                       </div>
 
                       {/* Content Panels */}
                       <div className="grid gap-6 md:grid-cols-2 items-start">
-                        
                         <div className="flex flex-col gap-6">
                           {/* Common Symptom Card */}
                           <div className="border border-rose-500/20 rounded-2xl p-5 bg-rose-500/5 relative overflow-hidden group">
                             <div className="flex items-center gap-2 mb-2.5 text-rose-500">
                               <AlertTriangle className="h-4.5 w-4.5 shrink-0" />
-                              <h4 className="text-xs font-bold uppercase tracking-widest leading-none">Common Symptom</h4>
+                              <h4 className="text-xs font-bold uppercase tracking-widest leading-none">
+                                Common Symptom
+                              </h4>
                             </div>
                             <p className="text-sm font-semibold leading-relaxed text-foreground/90 pl-6 border-l border-rose-500/35">
                               {activeData.symptom}
@@ -369,7 +423,9 @@ function HomePage() {
                           <div className="border border-primary/20 rounded-2xl p-5 bg-primary/5 relative overflow-hidden group">
                             <div className="flex items-center gap-2 mb-2.5 text-primary">
                               <Wrench className="h-4.5 w-4.5 shrink-0" />
-                              <h4 className="text-xs font-bold uppercase tracking-widest leading-none">Engineering Fix</h4>
+                              <h4 className="text-xs font-bold uppercase tracking-widest leading-none">
+                                Engineering Fix
+                              </h4>
                             </div>
                             <p className="text-xs md:text-sm text-muted-foreground leading-relaxed pl-6 border-l border-primary/35">
                               {activeData.procedure}
@@ -384,23 +440,26 @@ function HomePage() {
                           </h4>
                           <ul className="flex flex-col gap-3">
                             {activeData.features.map((feat, index) => (
-                              <li key={index} className="flex gap-3 items-center text-xs md:text-sm leading-relaxed text-foreground/80 font-bold">
+                              <li
+                                key={index}
+                                className="flex gap-3 items-center text-xs md:text-sm leading-relaxed text-foreground/80 font-bold"
+                              >
                                 <BadgeCheck className="h-5 w-5 text-emerald-500 shrink-0" />
                                 <span>{feat}</span>
                               </li>
                             ))}
                           </ul>
                         </div>
-
                       </div>
                     </div>
 
                     {/* Action Button */}
                     <div className="border-t border-border pt-6 mt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
                       <div className="text-[11px] text-muted-foreground leading-relaxed">
-                        * Immediate dispatch advice and engineering cost analysis reports are standard.
+                        * Immediate dispatch advice and engineering cost analysis reports are
+                        standard.
                       </div>
-                      
+
                       <a
                         href={waLink(activeData.waMessage)}
                         target="_blank"
@@ -412,12 +471,10 @@ function HomePage() {
                         <ArrowRight className="h-4.5 w-4.5 transition-transform group-hover:translate-x-1" />
                       </a>
                     </div>
-
                   </div>
                 );
               })()}
             </div>
-
           </div>
         </div>
       </section>
@@ -427,12 +484,15 @@ function HomePage() {
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <div className="reveal-section flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between border-b border-border/50 pb-8 mb-12">
             <div className="max-w-2xl">
-              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Hydraulic Services</div>
+              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                Hydraulic Services
+              </div>
               <h2 className="mt-3 font-display text-3xl font-extrabold tracking-wide md:text-5xl text-foreground">
                 Premier Parts & Repair <span className="text-gradient-brand">Capabilities</span>
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">
-                Browse our comprehensive catalog of high-pressure components, custom design builds, and precision calibration services.
+                Browse our comprehensive catalog of high-pressure components, custom design builds,
+                and precision calibration services.
               </p>
             </div>
             <Link
@@ -470,7 +530,10 @@ function HomePage() {
             <div className="overflow-hidden" ref={emblaRef}>
               <div className="flex -ml-6">
                 {SERVICES.map((s, idx) => (
-                  <div key={`${s.id}-${idx}`} className="flex-[0_0_100%] min-w-0 md:flex-[0_0_50%] lg:flex-[0_0_33.3333%] pl-6">
+                  <div
+                    key={`${s.id}-${idx}`}
+                    className="flex-[0_0_100%] min-w-0 md:flex-[0_0_50%] lg:flex-[0_0_33.3333%] pl-6"
+                  >
                     <Link
                       to="/services/$serviceId"
                       params={{ serviceId: s.id }}
@@ -483,6 +546,7 @@ function HomePage() {
                           width={800}
                           height={600}
                           loading="lazy"
+                          decoding="async"
                           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-80" />
@@ -493,7 +557,9 @@ function HomePage() {
                           <h3 className="font-display text-xl font-extrabold tracking-wide text-foreground group-hover:text-primary transition-colors">
                             {s.title}
                           </h3>
-                          <p className="text-xs text-primary font-semibold uppercase mt-0.5 tracking-wider">{s.type}</p>
+                          <p className="text-xs text-primary font-semibold uppercase mt-0.5 tracking-wider">
+                            {s.type}
+                          </p>
                           <p className="mt-3 text-xs leading-relaxed text-muted-foreground line-clamp-3">
                             {s.description}
                           </p>
@@ -501,7 +567,9 @@ function HomePage() {
 
                         <div className="mt-6 pt-4 border-t border-border/40 flex items-center justify-between">
                           <a
-                            href={waLink(`Hi RVS Hydraulics, I am interested in your "${s.title}" service. Could I get details and pricing?`)}
+                            href={waLink(
+                              `Hi RVS Hydraulics, I am interested in your "${s.title}" service. Could I get details and pricing?`,
+                            )}
                             target="_blank"
                             rel="noopener"
                             onClick={(e) => e.stopPropagation()}
@@ -509,7 +577,9 @@ function HomePage() {
                           >
                             Instant Quote <ArrowRight className="h-3 w-3" />
                           </a>
-                          <span className="text-[10px] text-muted-foreground bg-muted px-2 py-0.5 rounded font-medium">{s.duration}</span>
+                          <span className="text-[10px] text-muted-foreground bg-muted px-2 py-0.5 rounded font-medium">
+                            {s.duration}
+                          </span>
                         </div>
                       </div>
                     </Link>
@@ -521,17 +591,19 @@ function HomePage() {
         </div>
       </section>
 
-
       {/* ─── WHY CHOOSE US (HIGH PERFORMANCE METRIC TILES) ─── */}
       <section className="border-t border-border py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <div className="reveal-section mx-auto max-w-2xl text-center mb-16">
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Core Value Proposition</div>
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+              Core Value Proposition
+            </div>
             <h2 className="mt-3 font-display text-3xl font-extrabold text-foreground md:text-5xl">
               Built for <span className="text-gradient-accent">Industrial Reliability</span>
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
-              Factories, heavy workshops, and fleet operators choose RVS Hydraulics because we build absolute structural security and high-fidelity calibration into every job.
+              Factories, heavy workshops, and fleet operators choose RVS Hydraulics because we build
+              absolute structural security and high-fidelity calibration into every job.
             </p>
           </div>
 
@@ -542,36 +614,36 @@ function HomePage() {
                 icon: ShieldCheck,
                 title: "Quality Service",
                 desc: "Every dynamic component is completely pressure-tested & warrantied before delivery.",
-                color: "text-primary"
+                color: "text-primary",
               },
               {
                 idx: "02",
                 icon: Clock,
                 title: "Rapid Lead Times",
                 desc: "Same-day quotation feedback & prioritized breakdown repairs to reduce downtime.",
-                color: "text-accent"
+                color: "text-accent",
               },
               {
                 idx: "03",
                 icon: BadgeCheck,
                 title: "100% Genuine",
                 desc: "All replacement seal-kits, brass fittings and accessories are certified OEM-grade.",
-                color: "text-primary"
+                color: "text-primary",
               },
               {
                 idx: "04",
                 icon: Wrench,
                 title: "Engineering Expertise",
                 desc: "Experienced technicians specializing in heavy industrial machinery circuits.",
-                color: "text-accent"
+                color: "text-accent",
               },
               {
                 idx: "05",
                 icon: IndianRupee,
                 title: "Honest Pricing",
                 desc: "Transparent bills of materials, cost efficiency suggestions and zero hidden fees.",
-                color: "text-primary"
-              }
+                color: "text-primary",
+              },
             ].map((metric) => {
               const Icon = metric.icon;
               return (
@@ -581,14 +653,22 @@ function HomePage() {
                   data-delay={parseInt(metric.idx) * 80}
                 >
                   {/* Floating Number Overlay */}
-                  <div className="absolute right-4 top-2 select-none font-display text-6xl font-extrabold text-foreground/5">{metric.idx}</div>
-                  
-                  <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/5 ${metric.color} shadow-sm transition-transform duration-300 group-hover:scale-105`}>
+                  <div className="absolute right-4 top-2 select-none font-display text-6xl font-extrabold text-foreground/5">
+                    {metric.idx}
+                  </div>
+
+                  <div
+                    className={`inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/5 ${metric.color} shadow-sm transition-transform duration-300 group-hover:scale-105`}
+                  >
                     <Icon className="h-5.5 w-5.5" />
                   </div>
-                  
-                  <h3 className="mt-5 font-display text-base font-bold tracking-wide text-foreground md:text-lg">{metric.title}</h3>
-                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground md:text-sm">{metric.desc}</p>
+
+                  <h3 className="mt-5 font-display text-base font-bold tracking-wide text-foreground md:text-lg">
+                    {metric.title}
+                  </h3>
+                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground md:text-sm">
+                    {metric.desc}
+                  </p>
                 </div>
               );
             })}
@@ -604,10 +684,12 @@ function HomePage() {
         <div className="reveal-section relative mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 px-4 text-center md:flex-row md:items-center md:text-left md:px-6">
           <div>
             <h3 className="font-display text-3xl font-extrabold tracking-wide md:text-4xl text-foreground">
-              Facing a Critical Hydraulic Breakdown <span className="text-gradient-brand">Today?</span>
+              Facing a Critical Hydraulic Breakdown{" "}
+              <span className="text-gradient-brand">Today?</span>
             </h3>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
-              Consult with our senior service engineer now. Get instant troubleshooting guidance and rapid procurement support.
+              Consult with our senior service engineer now. Get instant troubleshooting guidance and
+              rapid procurement support.
             </p>
           </div>
           <div className="flex flex-wrap gap-4">
@@ -633,12 +715,15 @@ function HomePage() {
       <section className="border-t border-border py-24 md:py-28">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <div className="reveal-section text-center mb-16">
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Client Testimonials</div>
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+              Client Testimonials
+            </div>
             <h2 className="mt-3 font-display text-3xl font-extrabold text-foreground md:text-5xl">
               Trusted by <span className="text-gradient-brand">Industrial Leaders</span>
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground max-w-xl mx-auto md:text-base">
-              Read how RVS Hydraulics helps factories maintain high performance and minimize operational bottlenecks.
+              Read how RVS Hydraulics helps factories maintain high performance and minimize
+              operational bottlenecks.
             </p>
           </div>
 
@@ -647,18 +732,18 @@ function HomePage() {
               {
                 n: "Plant Operations Manager, Hosur",
                 q: "Our entire production line was halted due to a high-pressure pump seal bypass. RVS diagnosed the internal wear, completed micro-resealing and dyno-tested it within 18 hours. Incredible service.",
-                initial: "H"
+                initial: "H",
               },
               {
                 n: "Workshop Owner, Krishnagiri",
                 q: "For four years, we've sourced all custom seal kits and high-pressure hose couplings from RVS. Their brass fittings hold up under continuous 350-bar duty without sweating a drop. Standard-setting quality.",
-                initial: "K"
+                initial: "K",
               },
               {
                 n: "Maintenance Lead, Bangalore",
                 q: "We commissioned a 7.5HP multi-station AC hydraulic power unit from RVS. The engineering was tidy, wiring was perfectly safe, and their on-site technician calibrated the pressure settings cleanly.",
-                initial: "B"
-              }
+                initial: "B",
+              },
             ].map((t, idx) => (
               <figure
                 key={t.n}
@@ -681,7 +766,9 @@ function HomePage() {
                   </div>
                   <div>
                     <div className="text-xs font-bold text-foreground">{t.n}</div>
-                    <div className="text-[10px] text-muted-foreground uppercase tracking-widest mt-0.5">Verified Client</div>
+                    <div className="text-[10px] text-muted-foreground uppercase tracking-widest mt-0.5">
+                      Verified Client
+                    </div>
                   </div>
                 </figcaption>
               </figure>
@@ -694,12 +781,15 @@ function HomePage() {
       <section className="border-t border-border py-24 md:py-28 bg-steel/20">
         <div className="mx-auto max-w-4xl px-4 md:px-6">
           <div className="reveal-section text-center mb-16">
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Technical Knowledge Base</div>
+            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+              Technical Knowledge Base
+            </div>
             <h2 className="mt-3 font-display text-3xl font-extrabold text-foreground md:text-5xl">
               Frequently Asked <span className="text-gradient-brand">Insights</span>
             </h2>
             <p className="mt-4 max-w-2xl mx-auto text-sm leading-relaxed text-muted-foreground md:text-base">
-              Technical answers to common hydraulic pressure maintenance, valve assembly, and product procurement inquiries.
+              Technical answers to common hydraulic pressure maintenance, valve assembly, and
+              product procurement inquiries.
             </p>
           </div>
 
@@ -717,7 +807,13 @@ function HomePage() {
                     onClick={() => setActiveFaq(isOpen ? null : idx)}
                     className="flex w-full items-center justify-between px-6 py-5 text-left font-display text-base font-bold md:text-lg transition cursor-pointer"
                   >
-                    <span className={isOpen ? "text-primary transition-colors font-extrabold tracking-wide" : "text-foreground tracking-wide font-extrabold"}>
+                    <span
+                      className={
+                        isOpen
+                          ? "text-primary transition-colors font-extrabold tracking-wide"
+                          : "text-foreground tracking-wide font-extrabold"
+                      }
+                    >
                       {faq.q}
                     </span>
                     <ChevronRight
@@ -728,7 +824,9 @@ function HomePage() {
                   </button>
                   <div
                     className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                      isOpen ? "max-h-[300px] border-t border-border/50 opacity-100" : "max-h-0 opacity-0"
+                      isOpen
+                        ? "max-h-[300px] border-t border-border/50 opacity-100"
+                        : "max-h-0 opacity-0"
                     }`}
                   >
                     <div className="px-6 py-5 text-sm leading-relaxed text-muted-foreground/90 bg-muted/20">
@@ -741,8 +839,6 @@ function HomePage() {
           </div>
         </div>
       </section>
-
-
     </>
   );
 }

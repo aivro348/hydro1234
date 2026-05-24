@@ -12,8 +12,7 @@ export const SITE = {
   region: "Tamil Nadu",
   postal: "635117",
   country: "IN",
-  mapsQuery:
-    "RVS+Hydraulics+Shoolagiri+TK+Nagar+Service+Road+Krishnagiri",
+  mapsQuery: "RVS+Hydraulics,+Shoolagiri",
   developer: "E Charan Kumar Reddy",
 } as const;
 

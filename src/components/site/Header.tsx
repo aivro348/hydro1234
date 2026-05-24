@@ -45,8 +45,7 @@ export function Header() {
               to={n.to}
               className="relative rounded-lg px-3.5 py-2 text-sm font-medium text-foreground/70 transition-colors hover:text-foreground"
               activeProps={{
-                className:
-                  "relative rounded-lg px-3.5 py-2 text-sm font-semibold text-primary",
+                className: "relative rounded-lg px-3.5 py-2 text-sm font-semibold text-primary",
               }}
               activeOptions={{ exact: n.to === "/" }}
             >
@@ -88,8 +87,7 @@ export function Header() {
               onClick={() => setOpen(false)}
               className="rounded-lg px-4 py-3.5 text-base font-medium text-foreground/80 transition hover:bg-card hover:text-foreground"
               activeProps={{
-                className:
-                  "rounded-lg px-4 py-3.5 text-base font-semibold text-primary bg-card",
+                className: "rounded-lg px-4 py-3.5 text-base font-semibold text-primary bg-card",
               }}
               activeOptions={{ exact: n.to === "/" }}
             >
