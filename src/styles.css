@@ -111,6 +111,18 @@
   }
 
   /* 3D scroll-reveal animations */
+  .reveal-section,
+  .reveal-card,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+
   .reveal-section {
     opacity: 0;
     transform: translateY(60px) scale(0.97);
@@ -164,6 +176,46 @@
   .reveal-scale.revealed {
     opacity: 1;
     transform: scale(1);
+  }
+
+  /* Force crisp text rendering after reveal transitions complete on mobile & touch displays */
+  @media (max-width: 1024px) {
+    .reveal-section,
+    .reveal-card,
+    .reveal-left,
+    .reveal-right,
+    .reveal-scale {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .reveal-section {
+      transform: translateY(20px);
+    }
+    .reveal-card {
+      transform: translateY(15px);
+    }
+    .reveal-left {
+      transform: translateX(-15px);
+    }
+    .reveal-right {
+      transform: translateX(15px);
+    }
+    .reveal-scale {
+      transform: scale(0.96);
+    }
+
+    /* Completely destroy complex transform/filter layers after reveal completes to prevent blurry/shaky text in WebKit */
+    .reveal-section.revealed,
+    .reveal-card.revealed,
+    .reveal-left.revealed,
+    .reveal-right.revealed,
+    .reveal-scale.revealed {
+      transform: none !important;
+      filter: none !important;
+      perspective: none !important;
+      will-change: auto !important;
+    }
   }
 
   /* 3D Parallax tilt for cards */
