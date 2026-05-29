@@ -31,6 +31,7 @@ import { SITE, waLink } from "@/lib/site";
 import { ParticleField } from "@/components/site/ParticleField";
 import { usePageReveal } from "@/hooks/useScrollReveal";
 import useEmblaCarousel from "embla-carousel-react";
+import { SEO } from "@/components/site/SEO";
 
 // The HERO slider now uses CATALOG dynamically
 
@@ -45,9 +46,6 @@ export const Route = createFileRoute("/")({
 function HomePage() {
   usePageReveal();
 
-  useEffect(() => {
-    document.title = TITLE;
-  }, []);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isSliderPlaying, setIsSliderPlaying] = useState(true);
@@ -179,6 +177,12 @@ function HomePage() {
 
   return (
     <>
+      <SEO
+        title={TITLE}
+        description={DESC}
+        keywords="RVS Hydraulics, hydraulic pump repair Shoolagiri, hydraulic cylinder service Hosur, hydraulic hose pipes Krishnagiri, power packs Bangalore, industrial seal kits"
+      />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

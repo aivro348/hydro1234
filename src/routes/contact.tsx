@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { FormEvent, useState, useEffect } from "react";
+import { FormEvent, useState } from "react";
 import {
   Phone,
   Mail,
@@ -14,6 +14,7 @@ import {
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { SITE } from "@/lib/site";
 import { usePageReveal } from "@/hooks/useScrollReveal";
+import { SEO } from "@/components/site/SEO";
 
 const TITLE = "Contact RVS Hydraulics | Get a Quote in Shoolagiri";
 const DESC =
@@ -25,10 +26,6 @@ export const Route = createFileRoute("/contact")({
 
 function Contact() {
   usePageReveal();
-
-  useEffect(() => {
-    document.title = TITLE;
-  }, []);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -49,6 +46,11 @@ function Contact() {
 
   return (
     <>
+      <SEO
+        title={TITLE}
+        description={DESC}
+        keywords="contact RVS Hydraulics, hydraulic quote Shoolagiri, hydraulic repair shop Hosur, phone number RVS Hydraulics, email RVS Hydraulics, Krishnagiri hydraulics"
+      />
       <section className="pt-32 pb-24 md:pt-36 md:pb-28">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 md:px-6 lg:grid-cols-5">
           {/* Sidebar Contact Cards */}

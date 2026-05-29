@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect } from "react";
 import { CATALOG } from "@/lib/catalog";
 import shop from "@/assets/gallery-shop.jpg";
 import service from "@/assets/gallery-service.jpg";
 import hero from "@/assets/hero-hydraulics.jpg";
 import heroPremium from "@/assets/hero-premium.png";
 import { usePageReveal } from "@/hooks/useScrollReveal";
+import { SEO } from "@/components/site/SEO";
 
 const TITLE = "Gallery | RVS Hydraulics Workshop & Products";
 const DESC =
@@ -18,10 +18,6 @@ export const Route = createFileRoute("/gallery")({
 function Gallery() {
   usePageReveal();
 
-  useEffect(() => {
-    document.title = TITLE;
-  }, []);
-
   const items = [
     { src: heroPremium, alt: "Premium Hydraulic Systems" },
     { src: hero, alt: "Hydraulic power pack" },
@@ -32,6 +28,11 @@ function Gallery() {
 
   return (
     <>
+      <SEO
+        title={TITLE}
+        description={DESC}
+        keywords="hydraulic workshop gallery, RVS Hydraulics photos, hydraulic cylinder parts image, Shoolagiri workshop view"
+      />
       <section className="pt-32 pb-24 md:pt-36 md:pb-28">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <div className="text-center mb-14">

@@ -1,10 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect } from "react";
 import { BadgeCheck, Target, Users, Wrench, ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import shop from "@/assets/gallery-shop.jpg";
 import indianMechanicImg from "@/assets/indian_hydraulic_mechanic.png";
 import { usePageReveal } from "@/hooks/useScrollReveal";
+import { SEO } from "@/components/site/SEO";
 
 const TITLE = "About RVS Hydraulics | Industrial Hydraulic Specialists";
 const DESC =
@@ -17,12 +17,13 @@ export const Route = createFileRoute("/about")({
 function About() {
   usePageReveal();
 
-  useEffect(() => {
-    document.title = TITLE;
-  }, []);
-
   return (
     <>
+      <SEO
+        title={TITLE}
+        description={DESC}
+        keywords="about RVS Hydraulics, hydraulic service history, Shoolagiri workshop, hydraulic team Hosur, industrial trust Krishnagiri"
+      />
       {/* ─── Hero / Story Section ─── */}
       <section className="pt-32 pb-24 md:pt-40 md:pb-32">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 md:grid-cols-2 md:gap-16 md:px-6">
