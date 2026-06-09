@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { BadgeCheck, Target, Users, Wrench, ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
-import shop from "@/assets/gallery-shop.jpg";
+import indianEngineerImg from "@/assets/indian_engineer.png";
 import indianMechanicImg from "@/assets/indian_hydraulic_mechanic.png";
 import { usePageReveal } from "@/hooks/useScrollReveal";
 import { SEO } from "@/components/site/SEO";
@@ -28,9 +28,8 @@ function About() {
       <section className="pt-32 pb-24 md:pt-40 md:pb-32">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 md:grid-cols-2 md:gap-16 md:px-6">
           <div className="reveal-left relative">
-            <div className="absolute -inset-4 rounded-2xl bg-gradient-brand opacity-10 blur-2xl" />
             <img
-              src={shop}
+              src={indianEngineerImg}
               alt="RVS Hydraulics shop"
               width={1024}
               height={768}

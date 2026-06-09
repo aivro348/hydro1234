@@ -6,11 +6,6 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://rvshydraulics.com/about</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://rvshydraulics.com/services</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -21,7 +16,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rvshydraulics.com/gallery</loc>
+    <loc>https://rvshydraulics.com/about</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -30,168 +25,174 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- INDIVIDUAL SERVICE PAGES (19) -->
+  <url>
+    <loc>https://rvshydraulics.com/gallery</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://rvshydraulics.com/services/hydraulic-system-repair</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rvshydraulics.com/services/hydraulic-ram-maintenance</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rvshydraulics.com/services/hydraulic-piston-repair</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rvshydraulics.com/services/pneumatic-hydraulic-repair</loc>
+    <loc>https://rvshydraulics.com/services/pneumatic-hydraulic-service</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rvshydraulics.com/services/fluid-power-cylinder-servicing</loc>
+    <loc>https://rvshydraulics.com/services/fluid-power-maintenance</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rvshydraulics.com/services/hydraulic-actuator-repair</loc>
+    <loc>https://rvshydraulics.com/services/actuator-repair</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rvshydraulics.com/services/hydraulic-cylinder-repair-services</loc>
+    <loc>https://rvshydraulics.com/services/hydraulic-cylinder-repair</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rvshydraulics.com/services/hydraulic-ram-repair-services</loc>
+    <loc>https://rvshydraulics.com/services/hydraulic-ram-repair</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rvshydraulics.com/services/hydraulic-equipment-repair-services</loc>
+    <loc>https://rvshydraulics.com/services/heavy-equipment-hydraulic-repair</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rvshydraulics.com/services/high-pressure-pump-repair</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rvshydraulics.com/services/hydraulic-system-pump-maintenance</loc>
+    <loc>https://rvshydraulics.com/services/hydraulic-system-maintenance</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rvshydraulics.com/services/fluid-pump-service</loc>
+    <loc>https://rvshydraulics.com/services/fluid-power-service</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rvshydraulics.com/services/hydraulic-power-pump-overhaul</loc>
+    <loc>https://rvshydraulics.com/services/power-pack-overhaul</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rvshydraulics.com/services/hydraulic-pump-restoration</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rvshydraulics.com/services/pump-system-hydraulic-servicing</loc>
+    <loc>https://rvshydraulics.com/services/hydraulic-system-servicing</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rvshydraulics.com/services/industrial-hydraulic-pump-solutions</loc>
+    <loc>https://rvshydraulics.com/services/industrial-hydraulic-solutions</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rvshydraulics.com/services/hydraulic-pump-repair-services</loc>
+    <loc>https://rvshydraulics.com/services/comprehensive-pump-repair</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rvshydraulics.com/services/industrial-hydraulic-pump-repair</loc>
+    <loc>https://rvshydraulics.com/services/industrial-pump-repair</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rvshydraulics.com/services/hydraulic-pump-maintenance</loc>
+    <loc>https://rvshydraulics.com/services/proactive-pump-maintenance</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
-
-  <!-- INDIVIDUAL PRODUCT PAGES (13) -->
   <url>
     <loc>https://rvshydraulics.com/products/hydraulic-pumps</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rvshydraulics.com/products/valves</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rvshydraulics.com/products/hose-pipes</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rvshydraulics.com/products/fittings</loc>
+    <loc>https://rvshydraulics.com/products/hydraulic-fittings</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rvshydraulics.com/products/seal-kits</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rvshydraulics.com/products/accessories</loc>
+    <loc>https://rvshydraulics.com/products/custom-power-packs</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rvshydraulics.com/products/power-pack</loc>
+    <loc>https://rvshydraulics.com/products/hydraulic-cylinders</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rvshydraulics.com/products/cylinder</loc>
+    <loc>https://rvshydraulics.com/products/high-pressure-power-pack</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rvshydraulics.com/products/industrial-cylinders</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rvshydraulics.com/products/pneumatic-fittings</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rvshydraulics.com/products/hand-pump</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rvshydraulics.com/products/heavy-duty-clevis-cylinders</loc>
+    <loc>https://rvshydraulics.com/products/brass-fittings</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rvshydraulics.com/products/brass-actuators</loc>
+    <loc>https://rvshydraulics.com/products/tollgate-power-pack</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://rvshydraulics.com/products/tollgate-powerpack</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rvshydraulics.com/products/two-wheeler-bike-lifting</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 </urlset>

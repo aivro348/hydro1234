@@ -173,7 +173,7 @@ function ServiceDetail() {
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* LEFT COLUMN - Visual Component Showcase & Specs */}
-            <div className="lg:col-span-5 flex flex-col gap-8">
+            <div className="lg:col-span-5 flex flex-col gap-6 lg:sticky lg:top-24 h-fit">
               {/* Image Container with Hover Effect */}
               <div className="aspect-[4/3] w-full rounded-3xl overflow-hidden border border-border/80 shadow-industrial bg-muted relative group">
                 <img
