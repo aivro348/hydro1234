@@ -178,9 +178,9 @@ function HomePage() {
   return (
     <>
       <SEO
-        title={TITLE}
-        description={DESC}
-        keywords="RVS Hydraulics, hydraulic pump repair Shoolagiri, hydraulic cylinder service Hosur, hydraulic hose pipes Krishnagiri, power packs Bangalore, industrial seal kits"
+        title="RVS Hydraulics | Industrial Cylinder & Pump Repair in Shoolagiri"
+        description="Premium hydraulic engineering servicing hub in Shoolagiri. We specialize in cylinder repair, pump restoration, and custom power packs for Hosur, Krishnagiri & Bangalore industries."
+        keywords="nearest hydraulic repair, hydraulic cylinder repair near me, hydraulic pump repair near me, hydraulic repair Shoolagiri, hydraulic hose near me, local hydraulic service Hosur, Krishnagiri, Bangalore hydraulic engineers"
       />
 
       <script

@@ -72,6 +72,42 @@ export function SEO({
     if (ogImage) {
       updateMetaProperty("og:image", ogImage);
     }
+
+    // 6. Inject LocalBusiness JSON-LD Schema
+    let schemaScript = document.querySelector('script[type="application/ld+json"]');
+    if (!schemaScript) {
+      schemaScript = document.createElement("script");
+      schemaScript.setAttribute("type", "application/ld+json");
+      document.head.appendChild(schemaScript);
+    }
+    
+    const localBusinessSchema = {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "RVS Hydraulics",
+      "image": "https://rvshydraulics.com/assets/indian_engineer.png",
+      "url": "https://rvshydraulics.com",
+      "telephone": "+91-1234567890", // Update with real number later
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Industrial Area",
+        "addressLocality": "Shoolagiri",
+        "addressRegion": "Tamil Nadu",
+        "postalCode": "635117",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 12.6616, // Approx Shoolagiri lat
+        "longitude": 78.0121 // Approx Shoolagiri lon
+      },
+      "areaServed": ["Shoolagiri", "Hosur", "Krishnagiri", "Bangalore", "Attibele", "Electronic City"],
+      "description": description,
+      "priceRange": "$$"
+    };
+    
+    schemaScript.textContent = JSON.stringify(localBusinessSchema);
+
   }, [title, description, keywords, canonical, ogTitle, ogDescription, ogImage, ogType]);
 
   return null;

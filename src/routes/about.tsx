@@ -22,7 +22,7 @@ function About() {
       <SEO
         title={TITLE}
         description={DESC}
-        keywords="about RVS Hydraulics, hydraulic service history, Shoolagiri workshop, hydraulic team Hosur, industrial trust Krishnagiri"
+        keywords="about RVS Hydraulics, nearest hydraulic workshop, local hydraulic experts Hosur, hydraulic mechanics near me Shoolagiri, industrial trust Krishnagiri"
       />
       {/* ─── Hero / Story Section ─── */}
       <section className="pt-32 pb-24 md:pt-40 md:pb-32">
