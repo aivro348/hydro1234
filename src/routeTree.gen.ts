@@ -17,6 +17,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesServiceIdRouteImport } from './routes/services_.$serviceId'
 import { Route as ProductsProductIdRouteImport } from './routes/products_.$productId'
+import { Route as LocationsLocationIdRouteImport } from './routes/locations_.$locationId'
 
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
@@ -58,6 +59,11 @@ const ProductsProductIdRoute = ProductsProductIdRouteImport.update({
   path: '/products/$productId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LocationsLocationIdRoute = LocationsLocationIdRouteImport.update({
+  id: '/locations_/$locationId',
+  path: '/locations/$locationId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -66,6 +72,7 @@ export interface FileRoutesByFullPath {
   '/gallery': typeof GalleryRoute
   '/products': typeof ProductsRoute
   '/services': typeof ServicesRoute
+  '/locations/$locationId': typeof LocationsLocationIdRoute
   '/products/$productId': typeof ProductsProductIdRoute
   '/services/$serviceId': typeof ServicesServiceIdRoute
 }
@@ -76,6 +83,7 @@ export interface FileRoutesByTo {
   '/gallery': typeof GalleryRoute
   '/products': typeof ProductsRoute
   '/services': typeof ServicesRoute
+  '/locations/$locationId': typeof LocationsLocationIdRoute
   '/products/$productId': typeof ProductsProductIdRoute
   '/services/$serviceId': typeof ServicesServiceIdRoute
 }
@@ -87,6 +95,7 @@ export interface FileRoutesById {
   '/gallery': typeof GalleryRoute
   '/products': typeof ProductsRoute
   '/services': typeof ServicesRoute
+  '/locations_/$locationId': typeof LocationsLocationIdRoute
   '/products_/$productId': typeof ProductsProductIdRoute
   '/services_/$serviceId': typeof ServicesServiceIdRoute
 }
@@ -99,6 +108,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/products'
     | '/services'
+    | '/locations/$locationId'
     | '/products/$productId'
     | '/services/$serviceId'
   fileRoutesByTo: FileRoutesByTo
@@ -109,6 +119,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/products'
     | '/services'
+    | '/locations/$locationId'
     | '/products/$productId'
     | '/services/$serviceId'
   id:
@@ -119,6 +130,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/products'
     | '/services'
+    | '/locations_/$locationId'
     | '/products_/$productId'
     | '/services_/$serviceId'
   fileRoutesById: FileRoutesById
@@ -130,6 +142,7 @@ export interface RootRouteChildren {
   GalleryRoute: typeof GalleryRoute
   ProductsRoute: typeof ProductsRoute
   ServicesRoute: typeof ServicesRoute
+  LocationsLocationIdRoute: typeof LocationsLocationIdRoute
   ProductsProductIdRoute: typeof ProductsProductIdRoute
   ServicesServiceIdRoute: typeof ServicesServiceIdRoute
 }
@@ -192,6 +205,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsProductIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/locations_/$locationId': {
+      id: '/locations_/$locationId'
+      path: '/locations/$locationId'
+      fullPath: '/locations/$locationId'
+      preLoaderRoute: typeof LocationsLocationIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -202,6 +222,7 @@ const rootRouteChildren: RootRouteChildren = {
   GalleryRoute: GalleryRoute,
   ProductsRoute: ProductsRoute,
   ServicesRoute: ServicesRoute,
+  LocationsLocationIdRoute: LocationsLocationIdRoute,
   ProductsProductIdRoute: ProductsProductIdRoute,
   ServicesServiceIdRoute: ServicesServiceIdRoute,
 }

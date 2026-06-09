@@ -1,4 +1,4 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate, useParams } from "@tanstack/react-router";
 import { useState, useEffect, useCallback } from "react";
 import {
   ArrowRight,
@@ -27,7 +27,7 @@ import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import galleryService from "@/assets/gallery-service.jpg";
 import { CATALOG } from "@/lib/catalog";
 import { SERVICES } from "@/lib/services";
-import { SITE, waLink, trackWhatsAppClick } from "@/lib/site";
+import { SITE, waLink, trackWhatsAppClick, SEO_LOCATIONS } from "@/lib/site";
 import { ParticleField } from "@/components/site/ParticleField";
 import { usePageReveal } from "@/hooks/useScrollReveal";
 import useEmblaCarousel from "embla-carousel-react";
@@ -35,15 +35,14 @@ import { SEO } from "@/components/site/SEO";
 
 // The HERO slider now uses CATALOG dynamically
 
-const TITLE = "RVS Hydraulics | Premium Hydraulic Pump & Cylinder Service in Shoolagiri";
-const DESC =
-  "Trusted hydraulic pump repair, cylinder service, hose pipes, fittings, seal kits, power packs & accessories in Shoolagiri, Hosur and Krishnagiri.";
-
-export const Route = createFileRoute("/")({
-  component: HomePage,
+export const Route = createFileRoute("/locations_/$locationId")({
+  component: LocationPage,
 });
 
-function HomePage() {
+function LocationPage() {
+  const { locationId } = Route.useParams();
+  const locationData = SEO_LOCATIONS.find((l) => l.id === locationId) || { name: "Bengaluru", id: "bengaluru" };
+  const locName = locationData.name;
   usePageReveal();
 
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
@@ -94,8 +93,8 @@ function HomePage() {
       a: "Yes, we supply only genuine, high-grade OEM seal kits (including Parker, Hallite, and Trelleborg seals) to guarantee high temperature and pressure tolerance for long-lasting operation.",
     },
     {
-      q: "Do you offer on-site hydraulic cylinder inspection and hose crimping in Hosur and Krishnagiri?",
-      a: "Yes! Our mobile service engineers offer on-site diagnostics, high-pressure hose crimping, oil filtration support, and cylinder extraction across industrial corridors in Shoolagiri, Hosur, Krishnagiri, and Bangalore.",
+      q: `Do you offer on-site hydraulic cylinder inspection and hose crimping in ${locName}?`,
+      a: `Yes! Our mobile service engineers offer on-site diagnostics, high-pressure hose crimping, oil filtration support, and cylinder extraction across industrial corridors in and around ${locName}.`,
     },
     {
       q: "Do you provide a warranty on your rebuild services?",
@@ -118,69 +117,69 @@ function HomePage() {
 
   const advisoryData = {
     pump: {
-      title: "Hydraulic Pump Diagnostics",
-      symptom: "Losing pressure, overheating, or making loud whining noises.",
+      title: `Hydraulic Pump Diagnostics in ${locName}`,
+      symptom: `Losing pressure, overheating, or making loud whining noises? Get the best hydraulic pump diagnostic services in ${locName} for quick troubleshooting.`,
       procedure:
-        "We run pressure calibrations, check internal tolerances, and replace internal wear parts (pistons, vanes, swashplates) using genuine OEM components.",
+        `RVS Hydraulics is the best hydraulic services place in ${locName}. We run high-precision pressure calibrations, check internal tolerances, and replace internal wear parts (pistons, vanes, swashplates) using genuine OEM components to restore your pump to factory-spec efficiency.`,
       features: [
-        "Vane, Piston & Gear Pump capability",
+        `Vane, Piston & Gear Pump repair in ${locName}`,
         "Dynamic flow-rate pressure testing",
         "OEM sealing & calibration check",
       ],
-      ctaText: "Inquire About Pump Repair",
+      ctaText: `Best Pump Repair in ${locName}`,
       waMessage:
-        "Hi RVS Hydraulics, my hydraulic pump is losing pressure/making noise. I'd like a quote for inspection and repair.",
+        `Hi RVS Hydraulics, I am looking for the best hydraulic pump repair in ${locName}. My pump is losing pressure/making noise, please help.`,
     },
     cylinder: {
-      title: "Cylinder Honing & Resealing",
-      symptom: "External fluid leaks, drift in lifting arms, or reduced load capacity.",
+      title: `Cylinder Honing & Resealing in ${locName}`,
+      symptom: `External leakage checks, piston drift, and slow cylinder responses in ${locName} machinery.`,
       procedure:
-        "Cylinder extraction, internal rod inspection, micro-honing of bore cylinders, chrome-repolishing, and replacement with premium multi-lip seal kits (Parker/Hallite).",
+        `Offering the best hydraulic cylinder repair and resealing services in ${locName}. Our services include complete cylinder extraction, internal bore honing, piston rod re-chroming, and installation of premium, high-pressure seal kits to completely eliminate drift and external leaks.`,
       features: [
-        "Single & double acting cylinder capability",
+        `Cylinder honing & rebuilding in ${locName}`,
         "Heavy-duty poly-urethane seal kit fittings",
         "Fast turnaround to minimize downtime",
       ],
-      ctaText: "Inquire About Cylinder Service",
+      ctaText: `Best Cylinder Service in ${locName}`,
       waMessage:
-        "Hi RVS Hydraulics, I have a leaking hydraulic cylinder. I'd like to ask about seal replacement or repair services.",
+        `Hi RVS Hydraulics, I'd like to get a quote for the best hydraulic cylinder honing and repair service in ${locName}.`,
     },
     hose: {
-      title: "High-Pressure Hose Assembly",
-      symptom: "Burst hoses, cracked outer shells, or leaking end-couplings.",
+      title: `High-Pressure Hose Assembly in ${locName}`,
+      symptom: `Steel braiding wear, crimping failures, or fitting leaks causing hydraulic pressure loss in ${locName}.`,
       procedure:
-        "Precision crimping using multi-spiral steel wire reinforced hoses (up to 400+ bar) tailored to your exact length and connection requirements.",
+        `For the best hydraulic hose crimping and assembly services in ${locName}, we build customized high-pressure hoses with high-tensile steel wire braiding and heavy-duty fittings matching your exact machinery specs for long-lasting leak protection.`,
       features: [
-        "Same-day emergency hose crimping",
+        `On-demand hose assemblies in ${locName}`,
         "High-tensile steel & brass fittings",
         "Double-braided high-durability hoses",
       ],
-      ctaText: "Inquire About Hose Fitting",
+      ctaText: `Best Hose Fitting in ${locName}`,
       waMessage:
-        "Hi RVS Hydraulics, I need a high-pressure hose assembly crimped. Can I get details on available sizes and fittings?",
+        `Hi RVS Hydraulics, I need high-pressure hose assembly services in ${locName}. Please send details on available fittings.`,
     },
     powerpack: {
-      title: "Custom Power Pack Engineering",
-      symptom: "Need an independent, compact, or high-tonnage hydraulic force system.",
+      title: `Custom Power Pack Engineering in ${locName}`,
+      symptom: `AC/DC reservoirs, valve stack manifolds, or custom hydraulic pressure designs required in ${locName}.`,
       procedure:
-        "Design and assembly of custom AC/DC hydraulic power units with highly reliable motor-pump integrations, custom manifolds, and solenoid valve banks.",
+        `As the best custom hydraulic power pack manufacturer in ${locName}, we design, engineer, and build tailored power packs. This includes high-efficiency AC/DC motors, customized valve manifolds, and robust reservoirs designed for heavy industrial operations.`,
       features: [
-        "Tailored reservoir capacity & flow rate",
+        `Custom power unit design in ${locName}`,
         "Complete engineering & wiring design",
         "Standard warranty and on-site setup support",
       ],
-      ctaText: "Inquire About Power Units",
+      ctaText: `Best Power Unit Service in ${locName}`,
       waMessage:
-        "Hi RVS Hydraulics, I am looking to procure or service a custom hydraulic power pack. Let's discuss requirements.",
+        `Hi RVS Hydraulics, I want to inquire about custom hydraulic power pack design and engineering in ${locName}.`,
     },
   };
 
   return (
     <>
       <SEO
-        title="RVS Hydraulics | Industrial Cylinder & Pump Repair in Shoolagiri"
-        description="Premium hydraulic engineering servicing hub in Shoolagiri. We specialize in cylinder repair, pump restoration, and custom power packs for Hosur, Krishnagiri & Bangalore industries."
-        keywords="nearest hydraulic repair, hydraulic cylinder repair near me, hydraulic pump repair near me, hydraulic repair Shoolagiri, hydraulic hose near me, local hydraulic service Hosur, Krishnagiri, Bangalore hydraulic engineers"
+        title={`best Hydraulics in ${locName} | RVS Hydraulics`}
+        description={`Looking for the best hydraulics in ${locName}? RVS Hydraulics specializes in high-pressure cylinder repair, pump diagnostics, and custom power packs for ${locName} businesses.`}
+        keywords={`best hydraulics in ${locName}, nearest hydraulic repair ${locName}, hydraulic cylinder repair near me ${locName}, hydraulic pump repair near me ${locName}, hydraulic repair ${locName}, hydraulic hose near me ${locName}, local hydraulic service ${locName}, Bengaluru hydraulic engineers`}
       />
 
       <script
@@ -302,7 +301,7 @@ function HomePage() {
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base max-w-2xl mx-auto">
               View our engineering diagnostics, professional troubleshooting steps, and standard
-              service guidelines for common industrial and mobile issues.
+              service guidelines for common industrial and mobile issues in {locName}.
             </p>
           </div>
 
@@ -492,11 +491,11 @@ function HomePage() {
                 Hydraulic Services
               </div>
               <h2 className="mt-3 font-display text-3xl font-extrabold tracking-wide md:text-5xl text-foreground">
-                Premier Parts & Repair <span className="text-gradient-brand">Capabilities</span>
+                best Hydraulics in <span className="text-gradient-brand">{locName}</span>
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">
                 Browse our comprehensive catalog of high-pressure components, custom design builds,
-                and precision calibration services.
+                and precision calibration services available for {locName} industries.
               </p>
             </div>
             <Link
@@ -726,10 +725,10 @@ function HomePage() {
               Client Testimonials
             </div>
             <h2 className="mt-3 font-display text-3xl font-extrabold text-foreground md:text-5xl">
-              Trusted by <span className="text-gradient-brand">Industrial Leaders</span>
+              Trusted by <span className="text-gradient-brand">Industrial Leaders in {locName}</span>
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground max-w-xl mx-auto md:text-base">
-              Read how RVS Hydraulics helps factories maintain high performance and minimize
+              Read how RVS Hydraulics helps factories in {locName} maintain high performance and minimize
               operational bottlenecks.
             </p>
           </div>
@@ -737,19 +736,19 @@ function HomePage() {
           <div className="grid gap-6 md:grid-cols-3">
             {[
               {
-                n: "Plant Operations Manager, Hosur",
-                q: "Our entire production line was halted due to a high-pressure pump seal bypass. RVS diagnosed the internal wear, completed micro-resealing and dyno-tested it within 18 hours. Incredible service.",
-                initial: "H",
+                n: `Plant Operations Manager, ${locName}`,
+                q: `Our entire production line in ${locName} was halted due to a high-pressure pump seal bypass. RVS diagnosed the internal wear, completed micro-resealing, and dyno-tested it within 18 hours. They are absolutely the best hydraulic pump service place in ${locName}.`,
+                initial: "P",
               },
               {
-                n: "Workshop Owner, Krishnagiri",
-                q: "For four years, we've sourced all custom seal kits and high-pressure hose couplings from RVS. Their brass fittings hold up under continuous 350-bar duty without sweating a drop. Standard-setting quality.",
-                initial: "K",
+                n: `Workshop Owner, near ${locName}`,
+                q: `For four years, we've sourced all custom seal kits and high-pressure hose couplings from RVS. Their brass fittings hold up under continuous 350-bar duty without sweating a drop. Truly the best hydraulics source in the ${locName} area.`,
+                initial: "W",
               },
               {
-                n: "Maintenance Lead, Bangalore",
-                q: "We commissioned a 7.5HP multi-station AC hydraulic power unit from RVS. The engineering was tidy, wiring was perfectly safe, and their on-site technician calibrated the pressure settings cleanly.",
-                initial: "B",
+                n: `Maintenance Lead, ${locName}`,
+                q: `We commissioned a 7.5HP multi-station AC hydraulic power unit from RVS. The engineering was tidy, wiring was perfectly safe, and their on-site technician calibrated the pressure settings cleanly. Simply the best hydraulic services in ${locName}.`,
+                initial: "M",
               },
             ].map((t, idx) => (
               <figure

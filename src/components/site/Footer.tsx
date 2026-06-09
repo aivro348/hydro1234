@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, MapPin, Phone, Facebook, Instagram, ArrowUpRight } from "lucide-react";
 import { RvsLogo } from "./RvsLogo";
-import { NAV, SITE } from "@/lib/site";
+import { NAV, SITE, SEO_LOCATIONS } from "@/lib/site";
 
 export function Footer() {
   return (
@@ -97,6 +97,24 @@ export function Footer() {
             >
               <Instagram className="h-4 w-4 text-muted-foreground" />
             </a>
+          </div>
+        </div>
+      </div>
+
+      <div className="relative border-t border-border/50">
+        <div className="mx-auto max-w-7xl px-4 py-8 md:px-6">
+          <h4 className="text-xs font-semibold uppercase tracking-wider text-primary mb-4">Service Areas in Bengaluru & Beyond</h4>
+          <div className="flex flex-wrap gap-x-6 gap-y-2.5 text-xs">
+            {SEO_LOCATIONS.map((loc) => (
+              <Link
+                key={loc.id}
+                to="/locations/$locationId"
+                params={{ locationId: loc.id }}
+                className="text-muted-foreground hover:text-primary transition-colors font-medium"
+              >
+                best Hydraulics in {loc.name}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

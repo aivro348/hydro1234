@@ -37,3 +37,16 @@ export const trackWhatsAppClick = () => {
     });
   }
 };
+
+export const SEO_LOCATIONS = [
+  { id: "electronic-city", name: "Electronic City" },
+  { id: "bommasandra", name: "Bommasandra" },
+  { id: "attibele", name: "Attibele" },
+  { id: "chandapura", name: "Chandapura" },
+  { id: "anekal", name: "Anekal" },
+  { id: "jigani", name: "Jigani" },
+  { id: "sarjapur", name: "Sarjapur" },
+  { id: "whitefield", name: "Whitefield" },
+  { id: "bellandur", name: "Bellandur" },
+  { id: "hsr-layout", name: "HSR Layout" },
+] as const;
