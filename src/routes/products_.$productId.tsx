@@ -15,7 +15,7 @@ import {
   BadgeCheck,
 } from "lucide-react";
 import { CATALOG } from "@/lib/catalog";
-import { waLink } from "@/lib/site";
+import { waLink, trackWhatsAppClick } from "@/lib/site";
 import { SEO } from "@/components/site/SEO";
 import { ParticleField } from "@/components/site/ParticleField";
 import { usePageReveal } from "@/hooks/useScrollReveal";

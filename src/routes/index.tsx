@@ -27,7 +27,7 @@ import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import galleryService from "@/assets/gallery-service.jpg";
 import { CATALOG } from "@/lib/catalog";
 import { SERVICES } from "@/lib/services";
-import { SITE, waLink } from "@/lib/site";
+import { SITE, waLink, trackWhatsAppClick } from "@/lib/site";
 import { ParticleField } from "@/components/site/ParticleField";
 import { usePageReveal } from "@/hooks/useScrollReveal";
 import useEmblaCarousel from "embla-carousel-react";
@@ -465,7 +465,7 @@ function HomePage() {
                       </div>
 
                       <a
-                        href={waLink(activeData.waMessage)}
+                        onClick={trackWhatsAppClick} href={waLink(activeData.waMessage)}
                         target="_blank"
                         rel="noopener"
                         className="group inline-flex items-center gap-2.5 rounded-xl bg-gradient-brand px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-industrial hover:shadow-glow-gold hover:scale-[1.02] transition-all duration-300 w-full sm:w-auto justify-center"
@@ -571,7 +571,7 @@ function HomePage() {
 
                         <div className="mt-6 pt-4 border-t border-border/40 flex items-center justify-between">
                           <a
-                            href={waLink(
+                            onClick={trackWhatsAppClick} href={waLink(
                               `Hi RVS Hydraulics, I am interested in your "${s.title}" service. Could I get details and pricing?`,
                             )}
                             target="_blank"
@@ -704,7 +704,7 @@ function HomePage() {
               <Phone className="h-4 w-4" /> Call Hotline
             </a>
             <a
-              href={waLink()}
+              onClick={trackWhatsAppClick} href={waLink()}
               target="_blank"
               rel="noopener"
               className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-6 py-3.5 text-sm font-bold text-white shadow-industrial hover:scale-[1.02] transition"

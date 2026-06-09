@@ -2,7 +2,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { SERVICES, ServiceCategory } from "@/lib/services";
-import { waLink } from "@/lib/site";
+import { waLink, trackWhatsAppClick } from "@/lib/site";
 import { ParticleField } from "@/components/site/ParticleField";
 import { usePageReveal } from "@/hooks/useScrollReveal";
 import { SEO } from "@/components/site/SEO";
@@ -145,7 +145,7 @@ function Services() {
                 </p>
               </div>
               <a
-                href={waLink(
+                onClick={trackWhatsAppClick} href={waLink(
                   "Hi RVS Hydraulics, I need assistance with a custom hydraulic servicing requirement.",
                 )}
                 target="_blank"

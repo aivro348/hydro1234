@@ -14,7 +14,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 import { SERVICES } from "@/lib/services";
-import { waLink } from "@/lib/site";
+import { waLink, trackWhatsAppClick } from "@/lib/site";
 import { SEO } from "@/components/site/SEO";
 import { ParticleField } from "@/components/site/ParticleField";
 import { usePageReveal } from "@/hooks/useScrollReveal";

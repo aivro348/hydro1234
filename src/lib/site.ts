@@ -27,3 +27,13 @@ export const NAV = [
 
 export const waLink = (text = "Hi RVS Hydraulics, I'd like a quote.") =>
   `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(text)}`;
+
+export const trackWhatsAppClick = () => {
+  if (typeof window !== "undefined" && (window as any).gtag) {
+    (window as any).gtag("event", "generate_lead", {
+      event_category: "engagement",
+      event_label: "WhatsApp_Contact",
+      value: 1,
+    });
+  }
+};
