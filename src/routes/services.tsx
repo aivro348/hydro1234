@@ -18,7 +18,7 @@ export const Route = createFileRoute("/services")({
 function Services() {
   usePageReveal();
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState<ServiceCategory | "all">("all");
+  
 
   // Retro-compatibility redirect for old modal share links (e.g., /services?id=hydraulic-ram-repair-services)
   useEffect(() => {
@@ -57,173 +57,74 @@ function Services() {
             </p>
           </div>
 
-          {/* Tab Filters */}
-          <div className="mb-10 border-b border-border/80">
-            <div className="flex flex-wrap gap-2 pb-6">
-              {[
-                { id: "all", label: "All" },
-                { id: "cylinder", label: "Hydraulic Cylinder Repair & Maintenance Services" },
-                { id: "pump", label: "Hydraulic Pump Repair & Services" },
-              ].map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id as "cylinder" | "pump")}
-                  className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300 ${
-                    activeTab === tab.id
-                      ? "bg-primary text-primary-foreground shadow-md scale-105"
-                      : "bg-card border border-border text-foreground hover:border-primary/50 hover:bg-muted"
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
+          <div className="flex flex-col gap-16 mb-24">
+            <div>
+              <div className="mb-8 flex items-center justify-between border-b border-border/80 pb-4">
+                <h2 className="font-display text-2xl font-bold text-foreground">
+                  Hydraulic Repair & Maintenance Services ({SERVICES.length})
+                </h2>
+              </div>
+              <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                {SERVICES.map((s, idx) => (
+                  <Link
+                    key={s.id}
+                    to="/services/$serviceId"
+                    params={{ serviceId: s.id }}
+                    className="reveal-card group flex flex-col justify-between overflow-hidden rounded-2xl border border-border bg-card shadow-card hover:shadow-glow-gold hover:border-primary/30 transition-all duration-300 cursor-pointer text-left"
+                    data-delay={idx * 60}
+                  >
+                    <div>
+                      {/* Card Image */}
+                      <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+                        <img
+                          src={s.image}
+                          alt={s.title}
+                          width={600}
+                          height={450}
+                          loading={idx < 4 ? "eager" : "lazy"}
+                          fetchPriority={idx < 4 ? "high" : "auto"}
+                          decoding="async"
+                          className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md rounded-lg px-2.5 py-1 text-[10px] font-bold text-white uppercase tracking-wider">
+                          Premium Service
+                        </div>
+                      </div>
+
+                      {/* Card Content */}
+                      <div className="p-5 flex flex-col gap-3">
+                        <h3 className="font-display text-xl font-bold text-foreground group-hover:text-primary transition-colors leading-tight">
+                          {s.title}
+                        </h3>
+
+                        <div className="flex flex-col gap-1 text-xs border-t border-border/60 pt-3">
+                          <div className="text-muted-foreground font-medium">
+                            Request for Price
+                          </div>
+                          <div className="text-foreground">
+                            <span className="font-semibold text-muted-foreground">Type : </span>
+                            {s.type}
+                          </div>
+                          <div className="text-foreground">
+                            <span className="font-semibold text-muted-foreground">
+                              Duration :{" "}
+                            </span>
+                            {s.duration}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Bottom Button */}
+                    <div className="p-5 pt-0">
+                      <div className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#0070e0] hover:bg-[#005fb8] text-white px-4 py-3 text-sm font-bold shadow-md transition duration-300">
+                        Get Best Price
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
-
-          <div className="flex flex-col gap-16">
-            {/* Cylinder Section */}
-            {(activeTab === "all" || activeTab === "cylinder") && (
-              <div>
-                <div className="mb-8 flex items-center justify-between border-b border-border/80 pb-4">
-                  <h2 className="font-display text-2xl font-bold text-foreground">
-                    Hydraulic Cylinder Repair & Maintenance Services (
-                    {SERVICES.filter((s) => s.category === "cylinder").length})
-                  </h2>
-                </div>
-                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                  {SERVICES.filter((s) => s.category === "cylinder").map((s, idx) => (
-                    <Link
-                      key={s.id}
-                      to="/services/$serviceId"
-                      params={{ serviceId: s.id }}
-                      className="reveal-card group flex flex-col justify-between overflow-hidden rounded-2xl border border-border bg-card shadow-card hover:shadow-glow-gold hover:border-primary/30 transition-all duration-300 cursor-pointer text-left"
-                      data-delay={idx * 60}
-                    >
-                      <div>
-                        {/* Card Image */}
-                        <div className="relative aspect-[4/3] overflow-hidden bg-muted">
-                          <img
-                            src={s.image}
-                            alt={s.title}
-                            width={600}
-                            height={450}
-                            loading={idx < 4 ? "eager" : "lazy"}
-                            fetchPriority={idx < 4 ? "high" : "auto"}
-                            decoding="async"
-                            className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-                          />
-                          <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md rounded-lg px-2.5 py-1 text-[10px] font-bold text-white uppercase tracking-wider">
-                            Premium Service
-                          </div>
-                        </div>
-
-                        {/* Card Content */}
-                        <div className="p-5 flex flex-col gap-3">
-                          <h3 className="font-display text-xl font-bold text-foreground group-hover:text-primary transition-colors leading-tight">
-                            {s.title}
-                          </h3>
-
-                          <div className="flex flex-col gap-1 text-xs border-t border-border/60 pt-3">
-                            <div className="text-muted-foreground font-medium">
-                              Request for Price
-                            </div>
-                            <div className="text-foreground">
-                              <span className="font-semibold text-muted-foreground">Type : </span>
-                              {s.type}
-                            </div>
-                            <div className="text-foreground">
-                              <span className="font-semibold text-muted-foreground">
-                                Duration :{" "}
-                              </span>
-                              {s.duration}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Bottom Button */}
-                      <div className="p-5 pt-0">
-                        <div className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#0070e0] hover:bg-[#005fb8] text-white px-4 py-3 text-sm font-bold shadow-md transition duration-300">
-                          Get Best Price
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Pump Section */}
-            {(activeTab === "all" || activeTab === "pump") && (
-              <div>
-                <div className="mb-8 flex items-center justify-between border-b border-border/80 pb-4">
-                  <h2 className="font-display text-2xl font-bold text-foreground">
-                    Hydraulic Pump Repair & Services (
-                    {SERVICES.filter((s) => s.category === "pump").length})
-                  </h2>
-                </div>
-                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                  {SERVICES.filter((s) => s.category === "pump").map((s, idx) => (
-                    <Link
-                      key={s.id}
-                      to="/services/$serviceId"
-                      params={{ serviceId: s.id }}
-                      className="reveal-card group flex flex-col justify-between overflow-hidden rounded-2xl border border-border bg-card shadow-card hover:shadow-glow-gold hover:border-primary/30 transition-all duration-300 cursor-pointer text-left"
-                      data-delay={idx * 60}
-                    >
-                      <div>
-                        {/* Card Image */}
-                        <div className="relative aspect-[4/3] overflow-hidden bg-muted">
-                          <img
-                            src={s.image}
-                            alt={s.title}
-                            width={600}
-                            height={450}
-                            loading={idx < 4 ? "eager" : "lazy"}
-                            fetchPriority={idx < 4 ? "high" : "auto"}
-                            decoding="async"
-                            className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-                          />
-                          <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md rounded-lg px-2.5 py-1 text-[10px] font-bold text-white uppercase tracking-wider">
-                            Premium Service
-                          </div>
-                        </div>
-
-                        {/* Card Content */}
-                        <div className="p-5 flex flex-col gap-3">
-                          <h3 className="font-display text-xl font-bold text-foreground group-hover:text-primary transition-colors leading-tight">
-                            {s.title}
-                          </h3>
-
-                          <div className="flex flex-col gap-1 text-xs border-t border-border/60 pt-3">
-                            <div className="text-muted-foreground font-medium">
-                              Request for Price
-                            </div>
-                            <div className="text-foreground">
-                              <span className="font-semibold text-muted-foreground">Type : </span>
-                              {s.type}
-                            </div>
-                            <div className="text-foreground">
-                              <span className="font-semibold text-muted-foreground">
-                                Duration :{" "}
-                              </span>
-                              {s.duration}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Bottom Button */}
-                      <div className="p-5 pt-0">
-                        <div className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#0070e0] hover:bg-[#005fb8] text-white px-4 py-3 text-sm font-bold shadow-md transition duration-300">
-                          Get Best Price
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
           </div>
 
           {/* CTA Banner */}
