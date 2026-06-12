@@ -491,7 +491,7 @@ function LocationPage() {
                 Hydraulic Services
               </div>
               <h2 className="mt-3 font-display text-3xl font-extrabold tracking-wide md:text-5xl text-foreground">
-                best Hydraulics in <span className="text-gradient-brand">{locName}</span>
+                The Best Place for Hydraulics in <span className="text-gradient-brand">{locName}</span>
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">
                 Browse our comprehensive catalog of high-pressure components, custom design builds,
