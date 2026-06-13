@@ -116,41 +116,41 @@ for loc in locations:
     title = f"best Hydraulics in {loc['name']} | RVS Hydraulics"
     description = f"Looking for the best hydraulics in {loc['name']}? RVS Hydraulics specializes in high-pressure cylinder repair, pump diagnostics, and custom power packs for {loc['name']} businesses."
     keywords = f"best hydraulics in {loc['name']}, nearest hydraulic repair {loc['name']}, hydraulic cylinder repair near me {loc['name']}, hydraulic pump repair near me {loc['name']}, hydraulic repair {loc['name']}, hydraulic hose near me {loc['name']}, local hydraulic service {loc['name']}, Bengaluru hydraulic engineers"
-    canonical_url = f"https://rvshydraulics.com/locations/{loc['id']}"
+    canonical_url = f"https://www.rvshydraulics.com/locations/{loc['id']}"
     generate_static_page(route_path, title, description, keywords, canonical_url)
 
 # Pre-render Services
 for s in services:
     route_path = f"services/{s['id']}"
-    canonical_url = f"https://rvshydraulics.com/services/{s['id']}"
+    canonical_url = f"https://www.rvshydraulics.com/services/{s['id']}"
     generate_static_page(route_path, s['metaTitle'], s['metaDescription'], s['keywords'], canonical_url)
 
 # Pre-render Products
 for p in products:
     route_path = f"products/{p['slug']}"
-    canonical_url = f"https://rvshydraulics.com/products/{p['slug']}"
+    canonical_url = f"https://www.rvshydraulics.com/products/{p['slug']}"
     generate_static_page(route_path, p['metaTitle'], p['metaDescription'], p['keywords'], canonical_url)
 
 print("Pages pre-rendered successfully.")
 
 # 4. Generate sitemap.xml dynamically to guarantee 100% correctness
 sitemap_urls = [
-    ("https://rvshydraulics.com/", "1.0"),
-    ("https://rvshydraulics.com/about", "0.8"),
-    ("https://rvshydraulics.com/services", "0.8"),
-    ("https://rvshydraulics.com/products", "0.8"),
-    ("https://rvshydraulics.com/contact", "0.8"),
-    ("https://rvshydraulics.com/gallery", "0.8")
+    ("https://www.rvshydraulics.com/", "1.0"),
+    ("https://www.rvshydraulics.com/about", "0.8"),
+    ("https://www.rvshydraulics.com/services", "0.8"),
+    ("https://www.rvshydraulics.com/products", "0.8"),
+    ("https://www.rvshydraulics.com/contact", "0.8"),
+    ("https://www.rvshydraulics.com/gallery", "0.8")
 ]
 
 for s in services:
-    sitemap_urls.append((f"https://rvshydraulics.com/services/{s['id']}", "0.8"))
+    sitemap_urls.append((f"https://www.rvshydraulics.com/services/{s['id']}", "0.8"))
 
 for p in products:
-    sitemap_urls.append((f"https://rvshydraulics.com/products/{p['slug']}", "0.8"))
+    sitemap_urls.append((f"https://www.rvshydraulics.com/products/{p['slug']}", "0.8"))
 
 for loc in locations:
-    sitemap_urls.append((f"https://rvshydraulics.com/locations/{loc['id']}", "0.8"))
+    sitemap_urls.append((f"https://www.rvshydraulics.com/locations/{loc['id']}", "0.8"))
 
 sitemap_content = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
 for url, priority in sitemap_urls:
