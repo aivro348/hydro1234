@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rvshydraulics.com/sitemap.xml
+Sitemap: https://www.rvshydraulics.com/sitemap.xml
