@@ -113,9 +113,9 @@ print("Pre-rendering pages...")
 # Pre-render Locations
 for loc in locations:
     route_path = f"locations/{loc['id']}"
-    title = f"best Hydraulics in {loc['name']} | RVS Hydraulics"
-    description = f"Looking for the best hydraulics in {loc['name']}? RVS Hydraulics specializes in high-pressure cylinder repair, pump diagnostics, and custom power packs for {loc['name']} businesses."
-    keywords = f"best hydraulics in {loc['name']}, nearest hydraulic repair {loc['name']}, hydraulic cylinder repair near me {loc['name']}, hydraulic pump repair near me {loc['name']}, hydraulic repair {loc['name']}, hydraulic hose near me {loc['name']}, local hydraulic service {loc['name']}, Bengaluru hydraulic engineers"
+    title = f"Hydraulic Repair & Diagnostics in {loc['name']} | RVS Hydraulics"
+    description = f"Professional hydraulic pump testing, cylinder resealing, and custom power pack engineering dispatched to {loc['name']} and surrounding industrial sectors by certified engineers."
+    keywords = f"hydraulic repair {loc['name']}, industrial hydraulics, hydraulic cylinder service, pump diagnostics, custom power packs, hydraulic engineering"
     canonical_url = f"https://www.rvshydraulics.com/locations/{loc['id']}"
     generate_static_page(route_path, title, description, keywords, canonical_url)
 

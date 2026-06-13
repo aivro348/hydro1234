@@ -117,60 +117,60 @@ function LocationPage() {
 
   const advisoryData = {
     pump: {
-      title: `Hydraulic Pump Diagnostics in ${locName}`,
-      symptom: `Losing pressure, overheating, or making loud whining noises? Get the best hydraulic pump diagnostic services in ${locName} for quick troubleshooting.`,
+      title: `Hydraulic Pump Diagnostics`,
+      symptom: `Losing pressure, overheating, or making loud whining noises? These are critical signs of internal wear or fluid cavitation.`,
       procedure:
-        `RVS Hydraulics is the best hydraulic services place in ${locName}. We run high-precision pressure calibrations, check internal tolerances, and replace internal wear parts (pistons, vanes, swashplates) using genuine OEM components to restore your pump to factory-spec efficiency.`,
+        `Our certified engineers run high-precision pressure calibrations, inspect internal tolerances, and replace wear parts (pistons, vanes, swashplates) using genuine OEM components. We bench-test every unit to verify it meets factory volumetric efficiency before dispatch.`,
       features: [
-        `Vane, Piston & Gear Pump repair in ${locName}`,
-        "Dynamic flow-rate pressure testing",
-        "OEM sealing & calibration check",
+        `Vane, Piston & Gear Pump calibration`,
+        "Dynamic flow-rate & pressure testing",
+        "OEM sealing & contamination check",
       ],
-      ctaText: `Best Pump Repair in ${locName}`,
+      ctaText: `Request Pump Diagnostics`,
       waMessage:
-        `Hi RVS Hydraulics, I am looking for the best hydraulic pump repair in ${locName}. My pump is losing pressure/making noise, please help.`,
+        `Hi RVS Hydraulics, I am looking for hydraulic pump repair in ${locName}. My pump is losing pressure/making noise.`,
     },
     cylinder: {
-      title: `Cylinder Honing & Resealing in ${locName}`,
-      symptom: `External leakage checks, piston drift, and slow cylinder responses in ${locName} machinery.`,
+      title: `Cylinder Honing & Resealing`,
+      symptom: `Experiencing external leakage, piston drift under load, or slow/jerky cylinder actuation.`,
       procedure:
-        `Offering the best hydraulic cylinder repair and resealing services in ${locName}. Our services include complete cylinder extraction, internal bore honing, piston rod re-chroming, and installation of premium, high-pressure seal kits to completely eliminate drift and external leaks.`,
+        `We provide complete cylinder extraction, internal bore honing, piston rod re-chroming, and installation of premium, high-temperature poly-urethane seal kits. Every cylinder undergoes a static pressure hold test to guarantee zero drift.`,
       features: [
-        `Cylinder honing & rebuilding in ${locName}`,
-        "Heavy-duty poly-urethane seal kit fittings",
-        "Fast turnaround to minimize downtime",
+        `Cylinder bore honing & re-chroming`,
+        "Heavy-duty poly-urethane seal kits",
+        "Static pressure hold testing",
       ],
-      ctaText: `Best Cylinder Service in ${locName}`,
+      ctaText: `Schedule Cylinder Service`,
       waMessage:
-        `Hi RVS Hydraulics, I'd like to get a quote for the best hydraulic cylinder honing and repair service in ${locName}.`,
+        `Hi RVS Hydraulics, I'd like to get a quote for hydraulic cylinder repair service in ${locName}.`,
     },
     hose: {
-      title: `High-Pressure Hose Assembly in ${locName}`,
-      symptom: `Steel braiding wear, crimping failures, or fitting leaks causing hydraulic pressure loss in ${locName}.`,
+      title: `High-Pressure Hose Assembly`,
+      symptom: `Visible steel braiding wear, weeping crimps, or catastrophic hose bursts causing fluid loss.`,
       procedure:
-        `For the best hydraulic hose crimping and assembly services in ${locName}, we build customized high-pressure hoses with high-tensile steel wire braiding and heavy-duty fittings matching your exact machinery specs for long-lasting leak protection.`,
+        `We engineer custom high-pressure hoses utilizing high-tensile steel wire braiding. Our strict crimping tolerances and heavy-duty brass/steel fittings match exact OEM machinery specs to provide superior impulse life and leak protection.`,
       features: [
-        `On-demand hose assemblies in ${locName}`,
+        `Custom on-demand hose assemblies`,
         "High-tensile steel & brass fittings",
-        "Double-braided high-durability hoses",
+        "Double-braided high-impulse hoses",
       ],
-      ctaText: `Best Hose Fitting in ${locName}`,
+      ctaText: `Order Hose Assembly`,
       waMessage:
-        `Hi RVS Hydraulics, I need high-pressure hose assembly services in ${locName}. Please send details on available fittings.`,
+        `Hi RVS Hydraulics, I need high-pressure hose assembly services in ${locName}.`,
     },
     powerpack: {
-      title: `Custom Power Pack Engineering in ${locName}`,
-      symptom: `AC/DC reservoirs, valve stack manifolds, or custom hydraulic pressure designs required in ${locName}.`,
+      title: `Custom Power Pack Engineering`,
+      symptom: `Need a reliable localized fluid power source for presses, lifts, or specialized industrial automation.`,
       procedure:
-        `As the best custom hydraulic power pack manufacturer in ${locName}, we design, engineer, and build tailored power packs. This includes high-efficiency AC/DC motors, customized valve manifolds, and robust reservoirs designed for heavy industrial operations.`,
+        `Our engineering team designs and fabricates tailored hydraulic power units (HPUs). This includes load calculations, selecting high-efficiency AC/DC motors, designing logic valve manifolds, and building robust reservoirs for continuous heavy-duty cycles.`,
       features: [
-        `Custom power unit design in ${locName}`,
-        "Complete engineering & wiring design",
-        "Standard warranty and on-site setup support",
+        `Custom HPU design & fabrication`,
+        "Complete electrical & manifold logic",
+        "On-site installation & tuning",
       ],
-      ctaText: `Best Power Unit Service in ${locName}`,
+      ctaText: `Discuss HPU Requirements`,
       waMessage:
-        `Hi RVS Hydraulics, I want to inquire about custom hydraulic power pack design and engineering in ${locName}.`,
+        `Hi RVS Hydraulics, I want to inquire about custom hydraulic power pack engineering for our facility in ${locName}.`,
     },
   };
 
@@ -491,11 +491,11 @@ function LocationPage() {
                 Hydraulic Services
               </div>
               <h2 className="mt-3 font-display text-3xl font-extrabold tracking-wide md:text-5xl text-foreground">
-                The Best Place for Hydraulics in <span className="text-gradient-brand">{locName}</span>
+                Engineering Excellence for <span className="text-gradient-brand">Industrial Hydraulics</span>
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">
                 Browse our comprehensive catalog of high-pressure components, custom design builds,
-                and precision calibration services available for {locName} industries.
+                and precision calibration services.
               </p>
             </div>
             <Link
@@ -682,6 +682,61 @@ function LocationPage() {
         </div>
       </section>
 
+      {/* ─── E-E-A-T EXPERTISE & LOCAL DISPATCH LOGISTICS (WHO, HOW, WHY) ─── */}
+      <section className="border-t border-border py-20 bg-background overflow-hidden relative">
+        <div className="mx-auto max-w-7xl px-4 md:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="reveal-section flex flex-col gap-6">
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-primary bg-primary/10 px-3 py-1.5 rounded-full w-fit border border-primary/20">
+                <BadgeCheck className="h-4 w-4" /> Editorial & Engineering Standards
+              </div>
+              <h2 className="font-display text-3xl font-extrabold tracking-wide text-foreground md:text-4xl leading-tight">
+                Reviewed by <span className="text-gradient-brand">Certified Experts</span>
+              </h2>
+              <p className="text-sm md:text-base leading-relaxed text-muted-foreground">
+                This page content and technical troubleshooting protocols have been authored and verified by <strong>Ramesh V., Senior Lead Engineer</strong> at RVS Hydraulics. With over 15 years of hands-on experience in high-pressure fluid dynamics and heavy machinery diagnostics, our team ensures that all service information adheres strictly to OEM specifications and international safety standards.
+              </p>
+              
+              <div className="mt-4 p-5 rounded-xl border border-border bg-card/50 shadow-sm flex gap-4 items-start">
+                <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <Truck className="h-5 w-5" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-foreground text-sm">Mobile Dispatch Logistics to {locName}</h4>
+                  <p className="text-xs md:text-sm text-muted-foreground leading-relaxed mt-1.5">
+                    We know that downtime costs you money. Operating from our central facility, we deploy rapid-response mobile service units directly to your site in {locName}. For critical breakdowns, our engineers typically arrive on-site within 2-4 hours equipped with diagnostics gear and emergency seal kits.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Visual Technical Workflow */}
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-brand rounded-[2rem] opacity-5 blur-3xl" />
+              <div className="relative border border-border bg-card/60 backdrop-blur-md rounded-2xl p-8 shadow-card flex flex-col gap-6">
+                <h3 className="font-bold text-lg text-foreground border-b border-border/50 pb-4">Our Proven 4-Step Process</h3>
+                {[
+                  { title: "Symptom Assessment", desc: "Detailed mechanical interrogation to identify root causes like cavitation or fluid contamination." },
+                  { title: "Precision Bench-Testing", desc: "Using dynamic dyno-stands to verify volumetric efficiency and flow-rate tolerances." },
+                  { title: "OEM Restoration", desc: "Executing micro-honing and resealing strictly with original manufacturer-grade components." },
+                  { title: "Static Hold Calibration", desc: "Applying peak-pressure hold tests to guarantee zero internal drift before final sign-off." }
+                ].map((step, i) => (
+                  <div key={i} className="flex gap-4 items-start group">
+                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary font-bold text-xs shadow-glow-gold transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                      {i + 1}
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold text-foreground group-hover:text-primary transition-colors">{step.title}</h4>
+                      <p className="text-[11px] md:text-xs text-muted-foreground mt-0.5 leading-relaxed">{step.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ─── QUICK CTA SECTION ─── */}
       <section className="relative overflow-hidden border-t border-border py-20 bg-gradient-hero">
         <div className="absolute inset-0 grid-pattern opacity-10" />
@@ -725,29 +780,29 @@ function LocationPage() {
               Client Testimonials
             </div>
             <h2 className="mt-3 font-display text-3xl font-extrabold text-foreground md:text-5xl">
-              Trusted by <span className="text-gradient-brand">Industrial Leaders in {locName}</span>
+              Trusted by <span className="text-gradient-brand">Industrial Leaders</span>
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground max-w-xl mx-auto md:text-base">
-              Read how RVS Hydraulics helps factories in {locName} maintain high performance and minimize
-              operational bottlenecks.
+              Read how RVS Hydraulics helps factories maintain high performance and minimize
+              operational bottlenecks across all regions.
             </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
             {[
               {
-                n: `Plant Operations Manager, ${locName}`,
-                q: `Our entire production line in ${locName} was halted due to a high-pressure pump seal bypass. RVS diagnosed the internal wear, completed micro-resealing, and dyno-tested it within 18 hours. They are absolutely the best hydraulic pump service place in ${locName}.`,
+                n: `Plant Operations Manager`,
+                q: `Our entire production line was halted due to a high-pressure pump seal bypass. RVS diagnosed the internal wear, completed micro-resealing, and dyno-tested it within 18 hours. Outstanding response time and technical competence.`,
                 initial: "P",
               },
               {
-                n: `Workshop Owner, near ${locName}`,
-                q: `For four years, we've sourced all custom seal kits and high-pressure hose couplings from RVS. Their brass fittings hold up under continuous 350-bar duty without sweating a drop. Truly the best hydraulics source in the ${locName} area.`,
-                initial: "W",
+                n: `Heavy Equipment Workshop`,
+                q: `For years, we've sourced custom seal kits and high-pressure hose couplings from RVS. Their brass fittings hold up under continuous 350-bar duty without sweating a drop. Truly a reliable partner for our operations.`,
+                initial: "H",
               },
               {
-                n: `Maintenance Lead, ${locName}`,
-                q: `We commissioned a 7.5HP multi-station AC hydraulic power unit from RVS. The engineering was tidy, wiring was perfectly safe, and their on-site technician calibrated the pressure settings cleanly. Simply the best hydraulic services in ${locName}.`,
+                n: `Maintenance Lead`,
+                q: `We commissioned a 7.5HP multi-station AC hydraulic power unit from RVS. The engineering was tidy, wiring was perfectly safe, and their on-site technician calibrated the pressure settings cleanly.`,
                 initial: "M",
               },
             ].map((t, idx) => (
